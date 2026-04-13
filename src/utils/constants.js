@@ -1,0 +1,69 @@
+export const ROUTES = {
+  HOME: '/',
+  PRICING: '/pricing',
+  SETUP: '/setup',
+  SUPPORT: '/support',
+  LOGIN: '/login',
+  DASHBOARD: '/dashboard',
+  CHECKOUT: '/checkout',
+  SUCCESS: '/success',
+  PRIVACY_POLICY: '/privacy',
+  TERMS: '/terms',
+};
+
+export const TELEGRAM = {
+  BOT_URL: 'https://t.me/Test3136_bot',
+  BOT_NAME: import.meta.env.VITE_TELEGRAM_BOT_NAME || 'Test3136_bot',
+  SUPPORT_URL: 'https://t.me/Test3136_bot',
+  CHANNEL_URL: 'https://t.me/Test3136_bot',
+};
+
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
+
+export const GOOGLE_CLIENT_ID = '936653148340-kvcp09r27i3q37n0g4qm5s623t868gk5.apps.googleusercontent.com';
+
+export const TARIFFS = [
+  { id: '7',    label: '7 дней',    price: 99,  days: 7,   devices: 3, type: 'pro' },
+  { id: '30',   label: '30 дней',   price: 139, days: 30,  devices: 3, type: 'pro' },
+  { id: '90',   label: '90 дней',   price: 369, days: 90,  devices: 3, type: 'pro', popular: true },
+  { id: '180',  label: '180 дней',  price: 699, days: 180, devices: 3, type: 'pro' },
+  { id: 'white_30', label: 'Mobile',  price: 399, days: 30,  devices: 1, type: 'mobile', badge: 'Mobile' },
+];
+
+export const PAYMENT_METHODS = [
+  { id: 'sbp',    label: 'СБП',        icon: 'Zap' },
+  { id: 'card',   label: 'Карта РФ',   icon: 'CreditCard' },
+];
+
+export const FEATURES = [
+  {
+    icon: 'Shield',
+    title: 'VLESS Reality',
+    description: 'Самый защищённый протокол. Трафик неотличим от обычного HTTPS.',
+  },
+  {
+    icon: 'Zap',
+    title: 'До 10 Гбит/с',
+    description: 'Серверы на быстрых каналах. YouTube, стримы, игры без тормозов.',
+  },
+  {
+    icon: 'Globe',
+    title: '4 страны',
+    description: 'Германия, Нидерланды, Польша, США. Выбирай ближайший сервер.',
+  },
+  {
+    icon: 'Smartphone',
+    title: 'До 3 устройств',
+    description: 'Одна подписка на телефон, ноутбук и планшет одновременно.',
+  },
+  {
+    icon: 'Infinity',
+    title: 'Без лимитов',
+    description: 'Никаких ограничений по трафику и скорости. Безлимит.',
+  },
+  {
+    icon: 'Clock',
+    title: '24/7 поддержка',
+    description: 'Telegram-бот и живая поддержка. Ответим быстро.',
+  },
+];
