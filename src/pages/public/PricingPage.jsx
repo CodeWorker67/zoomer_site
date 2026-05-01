@@ -108,7 +108,7 @@ export default function PricingPage() {
           </motion.div>
 
           {/* PRO tariffs */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
             {proTariffs.map((tariff, index) => (
               <motion.div
                 key={tariff.id}
@@ -182,8 +182,8 @@ export default function PricingPage() {
                   <Smartphone className="w-5 h-5 text-zoomer-cyan" />
                 </div>
                 <div>
-                  <div className="text-white font-semibold">Включи мобильный интернет</div>
-                  <div className="text-gray-400 text-xs">Оптимизирован для стабильной работы VPN на мобильном интернете</div>
+                  <div className="text-white font-semibold">{mobileTariff.label}</div>
+                  <div className="text-gray-400 text-xs">Оптимизирован для стабильной работы VPN на мобильном интернете, 1 устройство</div>
                 </div>
               </div>
               <div className="flex items-baseline justify-between">
