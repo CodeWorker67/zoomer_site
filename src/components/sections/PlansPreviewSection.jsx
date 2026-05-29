@@ -21,7 +21,7 @@ export default function PlansPreviewSection() {
             Простые <span className="text-gradient">тарифы</span>
           </h2>
           <p className="text-gray-400">
-            Без скрытых платежей. Безлимитный трафик. До 3 устройств.
+            Без скрытых платежей. Безлимитный трафик. До 5 устройств.
           </p>
         </motion.div>
 
@@ -82,7 +82,7 @@ export default function PlansPreviewSection() {
           <Link to={ROUTES.PRICING}>
             <Button className="px-8 py-4 text-lg flex items-center gap-2 mx-auto">
               <Zap className="w-5 h-5" />
-              5 дней бесплатно
+              1 день бесплатно
             </Button>
           </Link>
           <p className="text-gray-500 text-sm mt-3">Без карты. Активация в Telegram-боте.</p>

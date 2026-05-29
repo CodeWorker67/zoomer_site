@@ -64,7 +64,7 @@ export default function Header() {
                 </Link>
                 <Link to={ROUTES.PRICING}>
                   <Button variant="primary" className="text-sm px-4 py-2">
-                    Попробовать бесплатно
+                    Попробовать 1 день бесплатно
                   </Button>
                 </Link>
               </>
@@ -112,7 +112,7 @@ export default function Header() {
                       <Button variant="secondary" className="w-full text-sm">Войти</Button>
                     </Link>
                     <Link to={ROUTES.PRICING} onClick={() => setMobileOpen(false)}>
-                      <Button variant="primary" className="w-full text-sm">Попробовать бесплатно</Button>
+                      <Button variant="primary" className="w-full text-sm">Попробовать 1 день бесплатно</Button>
                     </Link>
                   </>
                 )}

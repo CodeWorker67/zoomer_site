@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Check, Star, Zap, CreditCard, Smartphone } from 'lucide-react';
+import { Check, Star, Zap, CreditCard } from 'lucide-react';
 import { TARIFFS, PAYMENT_METHODS, ROUTES } from '@utils/constants';
 import { paymentApi, trialApi } from '@services/api';
 import useAuthStore from '@stores/authStore';
@@ -16,8 +16,16 @@ export default function PricingPage() {
   const { isAuthenticated } = useAuthStore();
   const navigate = useNavigate();
 
-  const proTariffs = TARIFFS.filter(t => t.type === 'pro');
-  const mobileTariff = TARIFFS.find(t => t.type === 'mobile');
+  const tariffFeatures = (tariff) => {
+    if (tariff.type === 'mobile') {
+      return [
+        'Безлимит трафик',
+        '1 устройство',
+        'Оптимизация для mobile интернета',
+      ];
+    }
+    return ['Безлимит трафик', `До ${tariff.devices} устройств`, '26 серверов'];
+  };
 
   const handlePurchase = async () => {
     if (!isAuthenticated) {
@@ -54,7 +62,7 @@ export default function PricingPage() {
     try {
       const { data } = await trialApi.activate();
       if (data.success) {
-        toast.success('Триал активирован! 5 дней бесплатно');
+        toast.success('Триал активирован! 1 день бесплатно');
         navigate(ROUTES.DASHBOARD);
       }
     } catch (err) {
@@ -67,7 +75,7 @@ export default function PricingPage() {
     <>
       <Helmet>
         <title>Тарифы — ZoomerVPN</title>
-        <meta name="description" content="Тарифы ZoomerVPN от 99 руб. Безлимитный трафик, до 3 устройств, 26 серверов." />
+        <meta name="description" content="Тарифы ZoomerVPN от 99 руб. Безлимитный трафик, до 5 устройств, 26 серверов." />
       </Helmet>
 
       <section className="py-20 relative">
@@ -84,7 +92,7 @@ export default function PricingPage() {
             </h1>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
               Безлимитный трафик и скорость. Без скрытых платежей.
-              Попробуй 5 дней бесплатно.
+              Попробуй 1 день бесплатно.
             </p>
           </motion.div>
 
@@ -97,7 +105,7 @@ export default function PricingPage() {
           >
             <div className="flex items-center justify-center gap-2 mb-2">
               <Zap className="w-5 h-5 text-yellow-400" />
-              <span className="text-lg font-semibold text-white">5 дней бесплатно</span>
+              <span className="text-lg font-semibold text-white">1 день бесплатно</span>
             </div>
             <p className="text-gray-400 text-sm mb-4">
               Попробуй VPN без оплаты. Без привязки карты.
@@ -107,9 +115,9 @@ export default function PricingPage() {
             </Button>
           </motion.div>
 
-          {/* PRO tariffs */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-            {proTariffs.map((tariff, index) => (
+          {/* Tariffs */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-12">
+            {TARIFFS.map((tariff, index) => (
               <motion.div
                 key={tariff.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -122,7 +130,6 @@ export default function PricingPage() {
                     : ''
                 } ${tariff.popular ? 'border-zoomer-neon/20' : ''}`}
               >
-                {/* Badge */}
                 {(tariff.popular || tariff.badge) && (
                   <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-xs font-semibold text-white flex items-center gap-1 ${
                     tariff.promo
@@ -143,18 +150,12 @@ export default function PricingPage() {
                 </div>
 
                 <ul className="space-y-2 text-xs text-gray-400 text-left">
-                  <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-zoomer-green flex-shrink-0" />
-                    Безлимит трафик
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-zoomer-green flex-shrink-0" />
-                    До {tariff.devices} устройств
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-zoomer-green flex-shrink-0" />
-                    26 серверов
-                  </li>
+                  {tariffFeatures(tariff).map((feature) => (
+                    <li key={feature} className="flex items-center gap-2">
+                      <Check className="w-3.5 h-3.5 text-zoomer-green flex-shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
                 </ul>
 
                 {tariff.promo && (
@@ -163,38 +164,6 @@ export default function PricingPage() {
               </motion.div>
             ))}
           </div>
-
-          {/* Mobile tariff */}
-          {mobileTariff && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              onClick={() => setSelectedTariff(mobileTariff.id)}
-              className={`max-w-md mx-auto card-dark cursor-pointer mb-12 ${
-                selectedTariff === mobileTariff.id
-                  ? 'border-zoomer-neon ring-2 ring-zoomer-neon/50'
-                  : ''
-              }`}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-xl bg-zoomer-cyan/10 flex items-center justify-center">
-                  <Smartphone className="w-5 h-5 text-zoomer-cyan" />
-                </div>
-                <div>
-                  <div className="text-white font-semibold">{mobileTariff.label}</div>
-                  <div className="text-gray-400 text-xs">Оптимизирован для стабильной работы VPN на мобильном интернете, 1 устройство</div>
-                </div>
-              </div>
-              <div className="flex items-baseline justify-between">
-                <div>
-                  <span className="text-2xl font-bold text-white">{mobileTariff.price}</span>
-                  <span className="text-gray-400 ml-1">руб/мес</span>
-                </div>
-                <div className="text-xs text-gray-500">1 устройство</div>
-              </div>
-            </motion.div>
-          )}
 
           {/* Payment method selection */}
           {selectedTariff && (
