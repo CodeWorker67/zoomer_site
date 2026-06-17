@@ -32,7 +32,6 @@ export const TARIFFS = [
   { id: '90',   label: '90 дней (выгода −40%)', price: 539, days: 90, devices: 5, type: 'pro', popular: true },
   { id: '180',  label: '180 дней (выгода −50%)', price: 999, days: 180, devices: 5, type: 'pro' },
   { id: '5000', label: 'Навсегда', price: 3490, days: 5000, devices: 5, type: 'pro' },
-  { id: 'white_30', label: 'Ускоритель игр Mobile', price: 399, days: 30, devices: 1, type: 'mobile', badge: 'Mobile' },
 ];
 
 export const PAYMENT_METHODS = [

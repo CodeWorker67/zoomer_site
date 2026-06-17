@@ -16,16 +16,11 @@ export default function PricingPage() {
   const { isAuthenticated } = useAuthStore();
   const navigate = useNavigate();
 
-  const tariffFeatures = (tariff) => {
-    if (tariff.type === 'mobile') {
-      return [
-        'Безлимит трафик',
-        '1 устройство',
-        'Оптимизация для mobile интернета',
-      ];
-    }
-    return ['Безлимит трафик', `До ${tariff.devices} устройств`, '26 серверов'];
-  };
+  const tariffFeatures = (tariff) => [
+    'Безлимит трафик',
+    `До ${tariff.devices} устройств`,
+    '26 серверов',
+  ];
 
   const handlePurchase = async () => {
     if (!isAuthenticated) {
@@ -116,7 +111,7 @@ export default function PricingPage() {
           </motion.div>
 
           {/* Tariffs */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mb-12">
             {TARIFFS.map((tariff, index) => (
               <motion.div
                 key={tariff.id}

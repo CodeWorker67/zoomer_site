@@ -138,53 +138,31 @@ function OverviewTab() {
       )}
 
       {/* Subscriptions */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="card-dark">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-zoomer-neon/10 flex items-center justify-center">
-              <Shield className="w-5 h-5 text-zoomer-neon" />
-            </div>
-            <div>
-              <div className="text-white font-semibold">VPN PRO</div>
-              <div className={`text-sm ${sub?.pro?.active ? 'text-zoomer-green' : 'text-red-400'}`}>
-                {sub?.pro?.active ? 'Активна' : 'Не активна'}
-              </div>
+      <div className="card-dark">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl bg-zoomer-neon/10 flex items-center justify-center">
+            <Shield className="w-5 h-5 text-zoomer-neon" />
+          </div>
+          <div>
+            <div className="text-white font-semibold">VPN PRO</div>
+            <div className={`text-sm ${sub?.pro?.active ? 'text-zoomer-green' : 'text-red-400'}`}>
+              {sub?.pro?.active ? 'Активна' : 'Не активна'}
             </div>
           </div>
-          {sub?.pro?.expires && (
-            <div className="flex items-center gap-2 text-gray-400 text-sm">
-              <Clock className="w-4 h-4" />
-              До: {sub.pro.expires}
-            </div>
-          )}
-          {!sub?.pro?.active && (
-            <div className="mt-4">
-              <Link to={ROUTES.PRICING}>
-                <Button className="w-full text-sm">Купить подписку</Button>
-              </Link>
-            </div>
-          )}
         </div>
-
-        <div className="card-dark">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-zoomer-cyan/10 flex items-center justify-center">
-              <Settings className="w-5 h-5 text-zoomer-cyan" />
-            </div>
-            <div>
-              <div className="text-white font-semibold">Mobile</div>
-              <div className={`text-sm ${sub?.mobile?.active ? 'text-zoomer-green' : 'text-gray-500'}`}>
-                {sub?.mobile?.active ? 'Активна' : 'Не активна'}
-              </div>
-            </div>
+        {sub?.pro?.expires && (
+          <div className="flex items-center gap-2 text-gray-400 text-sm">
+            <Clock className="w-4 h-4" />
+            До: {sub.pro.expires}
           </div>
-          {sub?.mobile?.expires && (
-            <div className="flex items-center gap-2 text-gray-400 text-sm">
-              <Clock className="w-4 h-4" />
-              До: {sub.mobile.expires}
-            </div>
-          )}
-        </div>
+        )}
+        {!sub?.pro?.active && (
+          <div className="mt-4">
+            <Link to={ROUTES.PRICING}>
+              <Button className="w-full text-sm">Купить подписку</Button>
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* Quick actions */}
