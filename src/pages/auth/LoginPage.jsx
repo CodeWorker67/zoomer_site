@@ -39,7 +39,7 @@ export default function LoginPage() {
             <h1 className="text-2xl font-bold text-white mb-2">Войти в ZoomerVPN</h1>
             <p className="text-gray-400 text-sm mb-6">Выберите способ входа</p>
 
-            {/* Method tabs — вход через Telegram временно скрыт (раскомментируйте блок ниже и TelegramAuth)
+            {/* Method tabs — вход через мессенджер временно скрыт (раскомментируйте блок ниже и TelegramAuth)
             <div className="flex gap-1 mb-6 bg-zoomer-dark rounded-xl p-1">
               <button
                 onClick={() => setAuthMethod('telegram')}
@@ -48,7 +48,7 @@ export default function LoginPage() {
                 }`}
               >
                 <Send className="w-4 h-4" />
-                Telegram
+                Мессенджер
               </button>
               <button
                 onClick={() => setAuthMethod('email')}
@@ -82,7 +82,7 @@ export default function LoginPage() {
 }
 
 /*
- * Вернуть вход через Telegram: импорт Send + TELEGRAM из constants, useRef;
+ * Вернуть вход через мессенджер: импорт Send + TELEGRAM из constants, useRef;
  * раскомментировать useState(authMethod), блок «Method tabs» в JSX и вызовы TelegramAuth / EmailAuth по вкладке.
 function TelegramAuth() {
   const containerRef = useRef(null);
@@ -122,7 +122,7 @@ function TelegramAuth() {
         className="flex min-h-[56px] w-full flex-col items-center justify-center rounded-xl border border-zoomer-border bg-zoomer-dark/50 py-3 [&_iframe]:max-w-full"
       />
       <p className="text-center text-xs text-gray-500">
-        После «Войти как …» откроется Telegram, затем браузер вернёт вас на этот сайт — вход завершится
+        После «Войти как …» откроется мессенджер, затем браузер вернёт вас на этот сайт — вход завершится
         автоматически (без всплывающего окна сайта).
       </p>
     </div>

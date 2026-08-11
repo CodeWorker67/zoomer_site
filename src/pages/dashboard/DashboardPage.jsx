@@ -413,7 +413,7 @@ function AccountTab() {
           <div className="flex items-center justify-between p-3 rounded-xl bg-zoomer-dark">
             <div className="flex items-center gap-2">
               <Send className="w-4 h-4 text-blue-400" />
-              <span className="text-sm text-gray-400">Telegram</span>
+              <span className="text-sm text-gray-400">Мессенджер</span>
             </div>
             <span className={`text-sm font-medium ${account?.has_telegram ? 'text-zoomer-green' : 'text-gray-500'}`}>
               {account?.has_telegram ? `ID: ${account.telegram_id}` : 'Не привязан'}
@@ -439,7 +439,7 @@ function AccountTab() {
             <h3 className="text-white font-semibold">Аккаунты связаны</h3>
           </div>
           <p className="text-gray-400 text-sm">
-            Telegram и Email привязаны. Ваши подписки из обоих источников отображаются в личном кабинете.
+            Мессенджер и Email привязаны. Ваши подписки из обоих источников отображаются в личном кабинете.
           </p>
         </div>
       ) : (
@@ -478,7 +478,7 @@ function AccountTab() {
           {account?.auth_type === 'email' && !account?.has_telegram && (
             <>
               <p className="text-gray-400 text-sm mb-4">
-                Введите код привязки, полученный от Telegram-аккаунта, чтобы объединить аккаунты.
+                Введите код привязки, полученный от аккаунта в мессенджере, чтобы объединить аккаунты.
               </p>
               <div className="flex gap-2">
                 <input
@@ -499,7 +499,7 @@ function AccountTab() {
       <div className="card-dark">
         <h3 className="text-white font-semibold mb-3">Как привязать аккаунты</h3>
         <div className="space-y-3 text-sm text-gray-400">
-          <p>1. Войдите на сайт через <span className="text-blue-400">Telegram</span> и сгенерируйте код привязки</p>
+          <p>1. Войдите на сайт через <span className="text-blue-400">мессенджер</span> и сгенерируйте код привязки</p>
           <p>2. Войдите на сайт через <span className="text-orange-400">Email</span> и введите полученный код</p>
           <p>3. Аккаунты объединятся — подписки из обоих источников будут доступны</p>
         </div>

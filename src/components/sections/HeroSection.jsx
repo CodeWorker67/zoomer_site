@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, Shield, Zap, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { TELEGRAM, ROUTES } from '@utils/constants';
+import { ROUTES } from '@utils/constants';
 import Button from '@components/ui/Button';
 
 export default function HeroSection() {
@@ -45,7 +45,7 @@ export default function HeroSection() {
             className="text-lg sm:text-xl text-gray-400 mb-10 max-w-2xl mx-auto"
           >
             VLESS Reality протокол. До 10 Гбит/с. Серверы в 4 странах.
-            YouTube, Discord, Telegram и весь интернет без блокировок.
+            Стабильный и быстрый доступ к интернету.
           </motion.p>
 
           {/* CTAs */}

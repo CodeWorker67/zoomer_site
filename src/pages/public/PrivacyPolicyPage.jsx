@@ -13,7 +13,7 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-xl font-semibold text-white">1. Какие данные мы собираем</h2>
             <p>При использовании сервиса ZoomerVPN мы можем собирать следующую информацию:</p>
             <ul className="list-disc pl-5 space-y-1">
-              <li>Telegram ID (для идентификации учётной записи)</li>
+              <li>ID аккаунта в мессенджере (для идентификации учётной записи)</li>
               <li>Дата регистрации и дата окончания подписки</li>
               <li>Информация о платежах (сумма, метод оплаты, статус)</li>
             </ul>
