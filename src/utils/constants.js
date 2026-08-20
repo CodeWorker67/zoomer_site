@@ -34,12 +34,11 @@ export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
 export const GOOGLE_CLIENT_ID = '936653148340-kvcp09r27i3q37n0g4qm5s623t868gk5.apps.googleusercontent.com';
 
 export const TARIFFS = [
-  { id: '7',    label: '7 дней',    price: 99,  days: 7,   devices: 5, type: 'pro' },
-  { id: '30',   label: '30 дней',   price: 299, days: 30,  devices: 5, type: 'pro' },
-  { id: '90',   label: '90 дней (выгода −17%)', price: 749, days: 90, devices: 5, type: 'pro', popular: true },
-  { id: '180',  label: '180 дней (выгода −25%)', price: 1349, days: 180, devices: 5, type: 'pro' },
   { id: '365',  label: '365 дней (выгода −33%)', price: 2399, days: 365, devices: 5, type: 'pro' },
-  { id: '5000', label: 'Навсегда', price: 3490, days: 5000, devices: 5, type: 'pro' },
+  { id: '180',  label: '180 дней (выгода −25%)', price: 1349, days: 180, devices: 5, type: 'pro' },
+  { id: '90',   label: '90 дней (выгода −17%)', price: 749, days: 90, devices: 5, type: 'pro', popular: true },
+  { id: '30',   label: '30 дней',   price: 299, days: 30,  devices: 5, type: 'pro' },
+  { id: '7',    label: '7 дней',    price: 99,  days: 7,   devices: 5, type: 'pro' },
 ];
 
 export const PAYMENT_METHODS = [
