@@ -55,25 +55,25 @@ export default function HeroSection() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col items-center justify-center gap-4 mb-16"
           >
-            <a href={TELEGRAM.BOT_URL} target="_blank" rel="noopener noreferrer">
-              <Button className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 flex items-center gap-2">
-                Перейти в Telegram бот
-                <ArrowRight className="w-5 h-5" />
-              </Button>
-            </a>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to={ROUTES.PRICING}>
-                <Button className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 flex items-center gap-2">
+            <div className="inline-flex w-full max-w-md flex-col items-stretch gap-4 sm:w-auto">
+              <a href={TELEGRAM.BOT_URL} target="_blank" rel="noopener noreferrer" className="block">
+                <Button className="w-full text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 flex items-center justify-center gap-2">
+                  Перейти в Telegram бот
+                  <ArrowRight className="w-5 h-5" />
+                </Button>
+              </a>
+              <Link to={ROUTES.PRICING} className="block">
+                <Button className="w-full text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 flex items-center justify-center gap-2">
                   Попробовать 1 день бесплатно
                   <ArrowRight className="w-5 h-5" />
                 </Button>
               </Link>
-              <Link to={ROUTES.PRICING}>
-                <Button variant="secondary" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
-                  Тарифы от 99 руб
-                </Button>
-              </Link>
             </div>
+            <Link to={ROUTES.PRICING}>
+              <Button variant="secondary" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
+                Тарифы от 99 руб
+              </Button>
+            </Link>
           </motion.div>
 
           {/* Stats */}
