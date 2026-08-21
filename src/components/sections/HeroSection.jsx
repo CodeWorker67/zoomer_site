@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, Shield, Zap, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '@utils/constants';
+import { ROUTES, TELEGRAM } from '@utils/constants';
 import Button from '@components/ui/Button';
 
 export default function HeroSection() {
@@ -53,19 +53,27 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+            className="flex flex-col items-center justify-center gap-4 mb-16"
           >
-            <Link to={ROUTES.PRICING}>
+            <a href={TELEGRAM.BOT_URL} target="_blank" rel="noopener noreferrer">
               <Button className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 flex items-center gap-2">
-                Попробовать 1 день бесплатно
+                Перейти в Telegram бот
                 <ArrowRight className="w-5 h-5" />
               </Button>
-            </Link>
-            <Link to={ROUTES.PRICING}>
-              <Button variant="secondary" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
-                Тарифы от 99 руб
-              </Button>
-            </Link>
+            </a>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link to={ROUTES.PRICING}>
+                <Button className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 flex items-center gap-2">
+                  Попробовать 1 день бесплатно
+                  <ArrowRight className="w-5 h-5" />
+                </Button>
+              </Link>
+              <Link to={ROUTES.PRICING}>
+                <Button variant="secondary" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
+                  Тарифы от 99 руб
+                </Button>
+              </Link>
+            </div>
           </motion.div>
 
           {/* Stats */}

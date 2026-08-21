@@ -115,7 +115,17 @@ function OverviewTab() {
 
   return (
     <div className="space-y-6">
-      {/* CTA — Trial or Setup */}
+      {/* CTA — Bot / Trial / Setup */}
+      <a
+        href={TELEGRAM.BOT_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full p-5 rounded-2xl bg-gradient-to-r from-zoomer-neon-dim to-zoomer-neon text-white font-semibold text-lg flex items-center justify-center gap-3 hover:opacity-90 transition-opacity"
+      >
+        <Send className="w-6 h-6" />
+        Перейти в Telegram бот
+      </a>
+
       {!hasAnySub && (
         <button
           onClick={handleTrial}
