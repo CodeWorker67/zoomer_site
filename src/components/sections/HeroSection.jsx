@@ -62,18 +62,24 @@ export default function HeroSection() {
                   <ArrowRight className="w-5 h-5" />
                 </Button>
               </a>
-              <Link to={ROUTES.PRICING} className="block">
+              <Link to={ROUTES.LOGIN} className="block">
                 <Button className="w-full text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 flex items-center justify-center gap-2">
-                  Попробовать 1 день бесплатно
+                  Подключиться без Telegram
                   <ArrowRight className="w-5 h-5" />
                 </Button>
               </Link>
+              <Link to={ROUTES.PRICING} className="block">
+                <Button className="w-full text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 flex items-center justify-center gap-2">
+                  Выбрать тариф
+                  <ArrowRight className="w-5 h-5" />
+                </Button>
+              </Link>
+              <Link to={ROUTES.PRICING} className="block">
+                <Button variant="secondary" className="w-full text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
+                  Попробовать 1 день бесплатно
+                </Button>
+              </Link>
             </div>
-            <Link to={ROUTES.PRICING}>
-              <Button variant="secondary" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
-                Тарифы от 99 руб
-              </Button>
-            </Link>
           </motion.div>
 
           {/* Stats */}
