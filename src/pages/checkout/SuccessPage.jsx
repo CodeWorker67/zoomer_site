@@ -7,7 +7,7 @@ import Button from '@components/ui/Button';
 export default function SuccessPage() {
   return (
     <>
-      <Helmet><title>Оплата успешна — ZoomerVPN</title></Helmet>
+      <Helmet><title>Оплата успешна — Зумерский VPN</title></Helmet>
       <section className="py-20 min-h-screen flex items-center justify-center">
         <div className="card-dark max-w-md mx-4 text-center">
           <CheckCircle className="w-16 h-16 text-zoomer-green mx-auto mb-4" />

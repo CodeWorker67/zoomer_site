@@ -37,7 +37,7 @@ export default function Header() {
               <Shield className="w-5 h-5 text-white" />
             </div>
             <span className="text-xl font-bold text-white">
-              Zoomer<span className="text-gradient">VPN</span>
+              Зумерский <span className="text-gradient">VPS</span>
             </span>
           </Link>
 

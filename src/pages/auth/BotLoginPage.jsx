@@ -42,7 +42,7 @@ export default function BotLoginPage() {
   return (
     <>
       <Helmet>
-        <title>Вход с бота — ZoomerVPN</title>
+        <title>Вход с бота — Зумерский VPN</title>
       </Helmet>
       <div className="flex min-h-[50vh] items-center justify-center px-4">
         <p className="text-sm text-gray-400">Выполняем вход…</p>

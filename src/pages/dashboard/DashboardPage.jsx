@@ -24,7 +24,7 @@ export default function DashboardPage() {
   return (
     <>
       <Helmet>
-        <title>Личный кабинет — ZoomerVPN</title>
+        <title>Личный кабинет — Зумерский VPN</title>
       </Helmet>
 
       <section className="py-20 min-h-screen">

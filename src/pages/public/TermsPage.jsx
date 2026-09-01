@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 export default function TermsPage() {
   return (
     <>
-      <Helmet><title>Пользовательское соглашение — ZoomerVPN</title></Helmet>
+      <Helmet><title>Пользовательское соглашение — Зумерский VPN</title></Helmet>
       <section className="py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold text-white mb-8">Пользовательское соглашение</h1>
@@ -11,10 +11,10 @@ export default function TermsPage() {
             <p>Дата вступления в силу: 01 апреля 2026 г.</p>
 
             <h2 className="text-xl font-semibold text-white">1. Общие положения</h2>
-            <p>Настоящее соглашение регулирует использование VPN-сервиса ZoomerVPN. Используя сервис, вы принимаете условия данного соглашения.</p>
+            <p>Настоящее соглашение регулирует использование VPN-сервиса Зумерский VPS. Используя сервис, вы принимаете условия данного соглашения.</p>
 
             <h2 className="text-xl font-semibold text-white">2. Описание сервиса</h2>
-            <p>ZoomerVPN предоставляет услугу VPN-подключения с использованием протокола VLESS Reality. Сервис обеспечивает шифрование трафика и безопасное соединение.</p>
+            <p>Зумерский VPS предоставляет услугу VPN-подключения с использованием протокола VLESS Reality. Сервис обеспечивает шифрование трафика и безопасное соединение.</p>
 
             <h2 className="text-xl font-semibold text-white">3. Правила использования</h2>
             <p>Запрещается использовать сервис для:</p>

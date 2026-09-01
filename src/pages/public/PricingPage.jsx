@@ -69,8 +69,8 @@ export default function PricingPage() {
   return (
     <>
       <Helmet>
-        <title>Тарифы — ZoomerVPN</title>
-        <meta name="description" content="Тарифы ZoomerVPN от 99 руб. Безлимитный трафик, до 5 устройств, 26 серверов." />
+        <title>Тарифы — Зумерский VPN</title>
+        <meta name="description" content="Тарифы Зумерский ВПН от 99 руб. Безлимитный трафик, до 5 устройств, 26 серверов." />
       </Helmet>
 
       <section className="py-20 relative">

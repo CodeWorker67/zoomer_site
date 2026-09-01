@@ -73,7 +73,7 @@ export default function TelegramLoginCallbackPage() {
   return (
     <>
       <Helmet>
-        <title>Вход через мессенджер — ZoomerVPN</title>
+        <title>Вход через мессенджер — Зумерский VPN</title>
       </Helmet>
       <div className="flex min-h-[50vh] items-center justify-center px-4">
         <p className="text-sm text-gray-400">Завершаем вход…</p>

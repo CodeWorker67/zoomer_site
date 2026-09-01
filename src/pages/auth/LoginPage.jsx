@@ -22,7 +22,7 @@ export default function LoginPage() {
   return (
     <>
       <Helmet>
-        <title>Вход — ZoomerVPN</title>
+        <title>Вход — Зумерский VPN</title>
       </Helmet>
 
       <section className="min-h-screen flex items-center justify-center py-20">
@@ -36,7 +36,7 @@ export default function LoginPage() {
               <Shield className="w-8 h-8 text-white" />
             </div>
 
-            <h1 className="text-2xl font-bold text-white mb-2">Войти в ZoomerVPN</h1>
+            <h1 className="text-2xl font-bold text-white mb-2">Войти в Зумерский VPS</h1>
             <p className="text-gray-400 text-sm mb-6">Выберите способ входа</p>
 
             {/* Method tabs — вход через мессенджер временно скрыт (раскомментируйте блок ниже и TelegramAuth)

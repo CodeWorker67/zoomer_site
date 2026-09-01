@@ -59,8 +59,8 @@ export default function SetupPage() {
   return (
     <>
       <Helmet>
-        <title>Подключение — ZoomerVPN</title>
-        <meta name="description" content="Инструкция по подключению ZoomerVPN на Android, iOS, Windows и macOS." />
+        <title>Подключение — Зумерский VPN</title>
+        <meta name="description" content="Инструкция по подключению Зумерский ВПН на Android, iOS, Windows и macOS." />
       </Helmet>
 
       <section className="py-20">

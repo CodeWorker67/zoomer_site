@@ -80,7 +80,7 @@ export default function GiftPage() {
   return (
     <div className="relative min-h-screen bg-zoomer-dark bg-grid bg-radial-glow">
       <Helmet>
-        <title>Активация подарка — ZoomerVPN</title>
+        <title>Активация подарка — Зумерский VPN</title>
       </Helmet>
 
       <div className="relative z-10 flex min-h-screen items-center justify-center px-4 py-12">
@@ -89,7 +89,7 @@ export default function GiftPage() {
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-zoomer-neon/20 bg-zoomer-neon/10">
               <Gift className="h-8 w-8 text-zoomer-neon" />
             </div>
-            <h1 className="text-3xl font-bold text-gradient">ZoomerVPN</h1>
+            <h1 className="text-3xl font-bold text-gradient">Зумерский VPS</h1>
             <p className="mt-2 text-gray-400">Активация подарочной подписки</p>
           </div>
 

@@ -62,7 +62,7 @@ export default function CheckoutPage() {
 
   return (
     <>
-      <Helmet><title>Оплата — ZoomerVPN</title></Helmet>
+      <Helmet><title>Оплата — Зумерский VPN</title></Helmet>
       <section className="py-20 min-h-screen flex items-center justify-center">
         <div className="card-dark max-w-md mx-4 text-center">
           {status === 'creating' && (

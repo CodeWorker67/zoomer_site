@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 export default function PrivacyPolicyPage() {
   return (
     <>
-      <Helmet><title>Политика конфиденциальности — ZoomerVPN</title></Helmet>
+      <Helmet><title>Политика конфиденциальности — Зумерский VPN</title></Helmet>
       <section className="py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold text-white mb-8">Политика конфиденциальности</h1>
@@ -11,7 +11,7 @@ export default function PrivacyPolicyPage() {
             <p>Дата вступления в силу: 01 апреля 2026 г.</p>
 
             <h2 className="text-xl font-semibold text-white">1. Какие данные мы собираем</h2>
-            <p>При использовании сервиса ZoomerVPN мы можем собирать следующую информацию:</p>
+            <p>При использовании сервиса Зумерский VPS мы можем собирать следующую информацию:</p>
             <ul className="list-disc pl-5 space-y-1">
               <li>ID аккаунта в мессенджере (для идентификации учётной записи)</li>
               <li>Дата регистрации и дата окончания подписки</li>

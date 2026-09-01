@@ -38,7 +38,7 @@ export default function SupportPage() {
   return (
     <>
       <Helmet>
-        <title>Поддержка — ZoomerVPN</title>
+        <title>Поддержка — Зумерский VPN</title>
       </Helmet>
 
       <section className="py-20">

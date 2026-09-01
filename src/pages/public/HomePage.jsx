@@ -8,8 +8,8 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>ZoomerVPN — Быстрый и безопасный VPN</title>
-        <meta name="description" content="ZoomerVPN — быстрый и безопасный VPN на базе VLESS Reality. До 10 Гбит/с, серверы в 4 странах. Попробуй 5 дней бесплатно!" />
+        <title>Зумерский VPN — Быстрый и безопасный VPN</title>
+        <meta name="description" content="Зумерский ВПН — быстрый и безопасный VPN на базе VLESS Reality. До 10 Гбит/с, серверы в 4 странах. Попробуй 5 дней бесплатно!" />
       </Helmet>
       <HeroSection />
       <FeaturesSection />

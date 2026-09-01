@@ -13,7 +13,7 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-zoomer-neon-dim to-zoomer-neon flex items-center justify-center">
                 <Shield className="w-5 h-5 text-white" />
               </div>
-              <span className="text-lg font-bold text-white">ZoomerVPN</span>
+              <span className="text-lg font-bold text-white">Зумерский VPS</span>
             </div>
             <p className="text-gray-400 text-sm">
               Быстрый и безопасный VPN на базе VLESS Reality. Скорость, стабильность и приватность.
@@ -82,7 +82,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-zoomer-border text-center text-gray-500 text-sm">
-          &copy; {new Date().getFullYear()} ZoomerVPN. Все права защищены.
+          &copy; {new Date().getFullYear()} Зумерский VPS. Все права защищены.
         </div>
       </div>
     </footer>
