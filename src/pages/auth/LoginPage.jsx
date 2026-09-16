@@ -7,10 +7,12 @@ import { Shield, Mail, ArrowLeft } from 'lucide-react';
 import useAuthStore from '@stores/authStore';
 import { authApi } from '@services/api';
 import { ROUTES, GOOGLE_CLIENT_ID, TELEGRAM } from '@utils/constants';
+import { useTelegramBotUrl } from '@hooks/useTelegramBotUrl';
 import Button from '@components/ui/Button';
 import toast from 'react-hot-toast';
 
 export default function LoginPage() {
+  const telegramBotUrl = useTelegramBotUrl();
   const navigate = useNavigate();
   const { isAuthenticated } = useAuthStore();
   // const [authMethod, setAuthMethod] = useState('telegram');
@@ -75,7 +77,7 @@ export default function LoginPage() {
             </div>
             <GoogleLoginButton />
             <a
-              href={TELEGRAM.BOT_URL}
+              href={telegramBotUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-3 w-full flex items-center justify-center gap-3 px-4 py-4 rounded-xl border border-zoomer-border bg-zoomer-card hover:border-gray-500 transition-all text-sm font-medium text-white"

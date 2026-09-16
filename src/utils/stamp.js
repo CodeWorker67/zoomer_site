@@ -1,5 +1,8 @@
+import { replaceLocationSearch } from '@utils/replaceLocationSearch';
+
 export const STAMP_STORAGE_KEY = 'zoomer_stamp';
 export const STAMP_QUERY_PARAM = 'stamp';
+export const STAMP_START_PARAM = 'start';
 
 const STAMP_RE = /^[a-z0-9_-]{1,100}$/;
 
@@ -21,6 +24,7 @@ const RESERVED_QUERY_KEYS = new Set([
   'code',
   'ref',
   'partner',
+  'start',
   'utm_source',
   'utm_medium',
   'utm_campaign',
@@ -45,7 +49,7 @@ function isReservedPath(pathname) {
 
 /**
  * Сохраняет метку first-touch из URL и убирает её из адресной строки.
- * Форматы: ?stamp=vk  или  ?vk
+ * Форматы: site.ru?vk, site.ru?stamp=vk, site.ru?start=vk (не partner_*)
  */
 export function captureStampFromUrl() {
   if (typeof window === 'undefined') return;
@@ -55,6 +59,18 @@ export function captureStampFromUrl() {
   let stamp = normalizeStamp(namedRaw);
   let stripNamed = namedRaw !== null && params.has(STAMP_QUERY_PARAM);
   let stripUnnamed = null;
+  let stripStart = false;
+
+  if (!stamp) {
+    const startRaw = params.get(STAMP_START_PARAM);
+    if (startRaw && !startRaw.trim().toLowerCase().startsWith('partner_')) {
+      const fromStart = normalizeStamp(startRaw);
+      if (fromStart) {
+        stamp = fromStart;
+        stripStart = params.has(STAMP_START_PARAM);
+      }
+    }
+  }
 
   if (!stamp && !isReservedPath(window.location.pathname)) {
     const keys = [...params.keys()];
@@ -77,11 +93,10 @@ export function captureStampFromUrl() {
 
   if (stripNamed) params.delete(STAMP_QUERY_PARAM);
   if (stripUnnamed) params.delete(stripUnnamed);
+  if (stripStart) params.delete(STAMP_START_PARAM);
 
-  if (stripNamed || stripUnnamed) {
-    const qs = params.toString();
-    const next = `${window.location.pathname}${qs ? `?${qs}` : ''}${window.location.hash}`;
-    window.history.replaceState(null, '', next);
+  if (stripNamed || stripUnnamed || stripStart) {
+    replaceLocationSearch(params);
   }
 }
 

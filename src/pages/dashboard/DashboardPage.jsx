@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import useAuthStore from '@stores/authStore';
 import { userApi, trialApi, authApi } from '@services/api';
 import { TELEGRAM, ROUTES } from '@utils/constants';
+import { useTelegramBotUrl } from '@hooks/useTelegramBotUrl';
 import Button from '@components/ui/Button';
 import toast from 'react-hot-toast';
 
@@ -76,6 +77,7 @@ export default function DashboardPage() {
 }
 
 function OverviewTab() {
+  const telegramBotUrl = useTelegramBotUrl();
   const [sub, setSub] = useState(null);
   const [keys, setKeys] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -125,7 +127,7 @@ function OverviewTab() {
     <div className="space-y-6">
       {/* CTA — Bot / Trial / Setup */}
       <a
-        href={TELEGRAM.BOT_URL}
+        href={telegramBotUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="relative w-full p-5 rounded-2xl bg-gradient-to-r from-zoomer-neon-dim to-zoomer-neon text-white font-semibold text-lg flex items-center justify-center hover:opacity-90 transition-opacity"

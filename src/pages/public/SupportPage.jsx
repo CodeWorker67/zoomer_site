@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { MessageCircle, Send, HelpCircle, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import { TELEGRAM } from '@utils/constants';
+import { useTelegramBotUrl } from '@hooks/useTelegramBotUrl';
 import Button from '@components/ui/Button';
 
 const faqs = [
@@ -33,6 +34,7 @@ const faqs = [
 ];
 
 export default function SupportPage() {
+  const telegramBotUrl = useTelegramBotUrl();
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
@@ -73,7 +75,7 @@ export default function SupportPage() {
               </div>
             </a>
             <a
-              href={TELEGRAM.BOT_URL}
+              href={telegramBotUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="card-dark flex items-center gap-4 hover:border-zoomer-neon/20"

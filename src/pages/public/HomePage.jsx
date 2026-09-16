@@ -3,6 +3,7 @@ import HeroSection from '@components/sections/HeroSection';
 import FeaturesSection from '@components/sections/FeaturesSection';
 import PlansPreviewSection from '@components/sections/PlansPreviewSection';
 import TrustSection from '@components/sections/TrustSection';
+import { canonicalFor } from '@utils/seo';
 
 export default function HomePage() {
   return (
@@ -10,6 +11,7 @@ export default function HomePage() {
       <Helmet>
         <title>Зумерский VPN — Быстрый и безопасный VPN</title>
         <meta name="description" content="Зумерский ВПН — быстрый и безопасный VPN на базе VLESS Reality. До 10 Гбит/с, серверы в 4 странах. Попробуй 5 дней бесплатно!" />
+        <link rel="canonical" href={canonicalFor('/')} />
       </Helmet>
       <HeroSection />
       <FeaturesSection />

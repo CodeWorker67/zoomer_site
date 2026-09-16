@@ -9,8 +9,9 @@ import Header from '@components/navigation/Header';
 import Footer from '@components/navigation/Footer';
 import Button from '@components/ui/Button';
 import { ROUTES } from '@utils/constants';
-import { captureStampFromUrl } from '@utils/stamp';
-import { capturePartnerFromUrl } from '@utils/partner';
+import { SEO_PAGE_PATHS } from '@content/seoPages';
+import { getSeoPageByPath, EXTRA_SEO_PATHS } from '@content/seoRegistry';
+import SeoArticleLayout from '@components/seo/SeoArticleLayout';
 
 import HomePage from '@pages/public/HomePage';
 
@@ -26,8 +27,16 @@ const SuccessPage = lazy(() => import('@pages/checkout/SuccessPage'));
 const PrivacyPolicyPage = lazy(() => import('@pages/public/PrivacyPolicyPage'));
 const TermsPage = lazy(() => import('@pages/public/TermsPage'));
 const GiftPage = lazy(() => import('@pages/gift/GiftPage'));
+const FaqPage = lazy(() => import('@pages/public/FaqPage'));
+const AboutPage = lazy(() => import('@pages/public/AboutPage'));
+const StatusPage = lazy(() => import('@pages/public/StatusPage'));
+const ProtocolsPage = lazy(() => import('@pages/public/ProtocolsPage'));
+const ContactsPage = lazy(() => import('@pages/public/ContactsPage'));
+const GuidesHubPage = lazy(() => import('@pages/public/GuidesHubPage'));
 
-const PageLoader = () => <div className="min-h-screen" />;
+const PageLoader = () => (
+  <div className="min-h-[40vh] flex items-center justify-center text-gray-500 text-sm">Загрузка…</div>
+);
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -41,42 +50,76 @@ const ProtectedRoute = ({ children }) => {
   return children;
 };
 
+/** Прокрутка к hero после перехода с SEO-страниц по ссылке /#top */
+function ScrollToHash() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (pathname !== ROUTES.HOME || hash !== '#top') return;
+
+    const scrollTop = () => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    scrollTop();
+    const t = window.setTimeout(scrollTop, 100);
+    return () => window.clearTimeout(t);
+  }, [pathname, hash]);
+
+  return null;
+}
+
 function AppShell() {
   const location = useLocation();
   const hideChrome = location.pathname === ROUTES.GIFT || location.pathname.startsWith('/gift');
+  const seoPage = getSeoPageByPath(location.pathname);
 
   return (
     <div className="min-h-screen bg-zoomer-dark bg-grid">
       {!hideChrome && <Header />}
       <main className={hideChrome ? '' : 'pt-16'}>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path={ROUTES.GIFT} element={<GiftPage />} />
-            <Route path={ROUTES.HOME} element={<HomePage />} />
-            <Route path={ROUTES.PRICING} element={<PricingPage />} />
-            <Route path={ROUTES.SETUP} element={<SetupPage />} />
-            <Route path={ROUTES.SUPPORT} element={<SupportPage />} />
-            <Route path={ROUTES.LOGIN} element={<LoginPage />} />
-            <Route
-              path={ROUTES.LOGIN_TELEGRAM_CALLBACK}
-              element={<TelegramLoginCallbackPage />}
-            />
-            <Route path={ROUTES.LOGIN_BOT} element={<BotLoginPage />} />
-            <Route path={ROUTES.CHECKOUT} element={<CheckoutPage />} />
-            <Route path={ROUTES.SUCCESS} element={<SuccessPage />} />
-            <Route path={ROUTES.PRIVACY_POLICY} element={<PrivacyPolicyPage />} />
-            <Route path={ROUTES.TERMS} element={<TermsPage />} />
-            <Route
-              path="/dashboard/*"
-              element={
-                <ProtectedRoute>
-                  <DashboardPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </Suspense>
+        {seoPage ? (
+          <SeoArticleLayout key={seoPage.path} page={seoPage} />
+        ) : (
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path={ROUTES.GIFT} element={<GiftPage />} />
+              <Route path={ROUTES.HOME} element={<HomePage />} />
+              <Route path={ROUTES.PRICING} element={<PricingPage />} />
+              <Route path={ROUTES.SETUP} element={<SetupPage />} />
+              <Route path={ROUTES.SUPPORT} element={<SupportPage />} />
+              <Route path={ROUTES.LOGIN} element={<LoginPage />} />
+              <Route
+                path={ROUTES.LOGIN_TELEGRAM_CALLBACK}
+                element={<TelegramLoginCallbackPage />}
+              />
+              <Route path={ROUTES.LOGIN_BOT} element={<BotLoginPage />} />
+              <Route path={ROUTES.CHECKOUT} element={<CheckoutPage />} />
+              <Route path={ROUTES.SUCCESS} element={<SuccessPage />} />
+              <Route path={ROUTES.PRIVACY_POLICY} element={<PrivacyPolicyPage />} />
+              <Route path={ROUTES.TERMS} element={<TermsPage />} />
+              <Route path={ROUTES.FAQ} element={<FaqPage />} />
+              <Route path={ROUTES.ABOUT} element={<AboutPage />} />
+              <Route path={ROUTES.STATUS} element={<StatusPage />} />
+              <Route path={ROUTES.PROTOCOLS} element={<ProtocolsPage />} />
+              <Route path={ROUTES.CONTACTS} element={<ContactsPage />} />
+              <Route path={ROUTES.GUIDES} element={<GuidesHubPage />} />
+              {[...SEO_PAGE_PATHS, ...EXTRA_SEO_PATHS].map((seoPath) => (
+                <Route
+                  key={`${seoPath}-slash`}
+                  path={`${seoPath}/`}
+                  element={<Navigate to={seoPath} replace />}
+                />
+              ))}
+              <Route
+                path="/dashboard/*"
+                element={
+                  <ProtectedRoute>
+                    <DashboardPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Suspense>
+        )}
       </main>
       {!hideChrome && <Footer />}
     </div>
@@ -88,14 +131,13 @@ function App() {
 
   useEffect(() => {
     loadFromStorage();
-    capturePartnerFromUrl();
-    captureStampFromUrl();
   }, [loadFromStorage]);
 
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+          <ScrollToHash />
           <AppShell />
           <Toaster
             position="top-right"

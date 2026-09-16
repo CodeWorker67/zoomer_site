@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, Shield, Zap, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ROUTES, TELEGRAM } from '@utils/constants';
+import { ROUTES } from '@utils/constants';
+import { useTelegramBotUrl } from '@hooks/useTelegramBotUrl';
 import Button from '@components/ui/Button';
 
 export default function HeroSection() {
+  const telegramBotUrl = useTelegramBotUrl();
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section id="top" className="relative min-h-[90vh] flex items-center overflow-hidden scroll-mt-16">
       {/* Background effects */}
       <div className="absolute inset-0 bg-radial-glow" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-zoomer-neon/10 rounded-full blur-3xl" />
@@ -56,7 +58,7 @@ export default function HeroSection() {
             className="flex flex-col items-center justify-center gap-4 mb-16"
           >
             <div className="inline-flex w-full max-w-md flex-col items-stretch gap-4 sm:w-auto">
-              <a href={TELEGRAM.BOT_URL} target="_blank" rel="noopener noreferrer" className="block">
+              <a href={telegramBotUrl} target="_blank" rel="noopener noreferrer" className="block">
                 <Button className="w-full text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 flex items-center justify-center gap-2">
                   Перейти в Telegram бот
                   <ArrowRight className="w-5 h-5" />

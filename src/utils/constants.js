@@ -15,6 +15,12 @@ export const ROUTES = {
   TERMS: '/terms',
   /** Одноразовая активация подарка без Telegram (?id=…) */
   GIFT: '/gift',
+  FAQ: '/faq',
+  ABOUT: '/about',
+  STATUS: '/status',
+  PROTOCOLS: '/protocols',
+  CONTACTS: '/contacts',
+  GUIDES: '/guides',
 };
 
 export const TELEGRAM = {

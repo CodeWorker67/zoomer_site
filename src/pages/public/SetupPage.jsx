@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Smartphone, Monitor, Apple, ChevronRight, Download, Copy, CheckCircle, ExternalLink } from 'lucide-react';
 import Button from '@components/ui/Button';
-import { TELEGRAM } from '@utils/constants';
+import { useTelegramBotUrl } from '@hooks/useTelegramBotUrl';
 
 const platforms = [
   { id: 'android', label: 'Android', icon: Smartphone, color: 'text-green-400' },
@@ -50,6 +50,7 @@ const stepsV2ray = [
 ];
 
 export default function SetupPage() {
+  const telegramBotUrl = useTelegramBotUrl();
   const [selectedPlatform, setSelectedPlatform] = useState(null);
   const [selectedApp, setSelectedApp] = useState(null);
 
@@ -194,7 +195,7 @@ export default function SetupPage() {
                   <p className="text-gray-400 text-sm mb-4">
                     Ещё нет подписки? Активируй 5 дней бесплатно в боте!
                   </p>
-                  <a href={TELEGRAM.BOT_URL} target="_blank" rel="noopener noreferrer">
+                  <a href={telegramBotUrl} target="_blank" rel="noopener noreferrer">
                     <Button className="px-6 py-3">Открыть бот</Button>
                   </a>
                 </div>

@@ -1,3 +1,5 @@
+import { replaceLocationSearch } from '@utils/replaceLocationSearch';
+
 export const PARTNER_STORAGE_KEY = 'zoomer_partner';
 export const PARTNER_START_PARAM = 'start';
 
@@ -34,9 +36,7 @@ export function capturePartnerFromUrl() {
 
   if (raw !== null && params.has(PARTNER_START_PARAM) && raw.startsWith('partner_')) {
     params.delete(PARTNER_START_PARAM);
-    const qs = params.toString();
-    const next = `${window.location.pathname}${qs ? `?${qs}` : ''}${window.location.hash}`;
-    window.history.replaceState(null, '', next);
+    replaceLocationSearch(params);
   }
 }
 
