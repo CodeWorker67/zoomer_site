@@ -50,14 +50,22 @@ const ProtectedRoute = ({ children }) => {
   return children;
 };
 
-/** Прокрутка к hero после перехода с SEO-страниц по ссылке /#top */
-function ScrollToHash() {
+/** Прокрутка вверх при смене страницы; плавно — для перехода на главную по /#top */
+function ScrollOnRouteChange() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    if (pathname !== ROUTES.HOME || hash !== '#top') return;
+    const scrollTop = (behavior = 'auto') =>
+      window.scrollTo({ top: 0, left: 0, behavior });
 
-    const scrollTop = () => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    if (pathname === ROUTES.HOME && hash === '#top') {
+      scrollTop('smooth');
+      const t = window.setTimeout(() => scrollTop('smooth'), 100);
+      return () => window.clearTimeout(t);
+    }
+
+    if (hash) return;
+
     scrollTop();
     const t = window.setTimeout(scrollTop, 100);
     return () => window.clearTimeout(t);
@@ -137,7 +145,7 @@ function App() {
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-          <ScrollToHash />
+          <ScrollOnRouteChange />
           <AppShell />
           <Toaster
             position="top-right"
