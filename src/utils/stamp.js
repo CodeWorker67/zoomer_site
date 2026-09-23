@@ -51,16 +51,37 @@ function isReservedPath(pathname) {
  * Сохраняет метку first-touch из URL и убирает её из адресной строки.
  * Форматы: site.ru?vk, site.ru?stamp=vk, site.ru?start=vk (не partner_*)
  */
+/** UTM / click-id → stamp (порядок: более специфичные id первыми). */
+const SEARCH_UTM_RULES = [
+  { match: (utm, params) => params.has('gclid') || utm.includes('google'), stamp: 'google' },
+  { match: (utm, params) => params.has('yclid') || utm.includes('yandex'), stamp: 'yandex' },
+  { match: (utm) => utm.includes('bing'), stamp: 'bing' },
+  { match: (utm) => utm.includes('duckduckgo') || utm === 'ddg', stamp: 'duckduckgo' },
+];
+
+/** Referrer hostname → stamp */
+const SEARCH_REFERRER_RULES = [
+  { match: (host) => host.includes('google.'), stamp: 'google' },
+  { match: (host) => host.includes('yandex.'), stamp: 'yandex' },
+  {
+    match: (host) => host === 'bing.com' || host.endsWith('.bing.com') || host.includes('bing.'),
+    stamp: 'bing',
+  },
+  { match: (host) => host.includes('duckduckgo.'), stamp: 'duckduckgo' },
+];
+
 function detectSearchEngineStamp(params, referrer) {
   const utm = (params.get('utm_source') || '').trim().toLowerCase();
-  if (params.has('gclid') || utm.includes('google')) return 'google';
-  if (params.has('yclid') || utm.includes('yandex')) return 'yandex';
+  for (const rule of SEARCH_UTM_RULES) {
+    if (rule.match(utm, params)) return rule.stamp;
+  }
 
   if (!referrer) return null;
   try {
     const host = new URL(referrer).hostname.toLowerCase();
-    if (host.includes('google.')) return 'google';
-    if (host.includes('yandex.')) return 'yandex';
+    for (const rule of SEARCH_REFERRER_RULES) {
+      if (rule.match(host)) return rule.stamp;
+    }
   } catch {
     // ignore invalid referrer
   }
@@ -68,8 +89,8 @@ function detectSearchEngineStamp(params, referrer) {
 }
 
 /**
- * First-touch: google/yandex, если зашли из поиска (referrer или utm/gclid/yclid),
- * и явная метка stamp ещё не сохранена.
+ * First-touch: google/yandex/bing/duckduckgo (referrer или utm/click-id),
+ * если явная метка stamp ещё не сохранена.
  */
 export function captureSearchEngineStamp() {
   if (typeof window === 'undefined') return;
