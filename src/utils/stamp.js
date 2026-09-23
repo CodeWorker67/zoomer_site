@@ -51,6 +51,37 @@ function isReservedPath(pathname) {
  * Сохраняет метку first-touch из URL и убирает её из адресной строки.
  * Форматы: site.ru?vk, site.ru?stamp=vk, site.ru?start=vk (не partner_*)
  */
+function detectSearchEngineStamp(params, referrer) {
+  const utm = (params.get('utm_source') || '').trim().toLowerCase();
+  if (params.has('gclid') || utm.includes('google')) return 'google';
+  if (params.has('yclid') || utm.includes('yandex')) return 'yandex';
+
+  if (!referrer) return null;
+  try {
+    const host = new URL(referrer).hostname.toLowerCase();
+    if (host.includes('google.')) return 'google';
+    if (host.includes('yandex.')) return 'yandex';
+  } catch {
+    // ignore invalid referrer
+  }
+  return null;
+}
+
+/**
+ * First-touch: google/yandex, если зашли из поиска (referrer или utm/gclid/yclid),
+ * и явная метка stamp ещё не сохранена.
+ */
+export function captureSearchEngineStamp() {
+  if (typeof window === 'undefined') return;
+  if (getStoredStamp()) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const stamp = detectSearchEngineStamp(params, document.referrer);
+  if (stamp) {
+    localStorage.setItem(STAMP_STORAGE_KEY, stamp);
+  }
+}
+
 export function captureStampFromUrl() {
   if (typeof window === 'undefined') return;
 

@@ -66,12 +66,15 @@ const useAuthStore = create((set, get) => ({
   telegramLogin: async (telegramData) => {
     set({ isLoading: true });
     try {
+      const stamp = getStoredStamp();
       const partner = getStoredPartner();
       const { data } = await authApi.telegramLogin({
         ...telegramData,
+        ...(stamp && { stamp }),
         ...(partner && { partner }),
       });
       get()._setAuth(data.user, data.token);
+      clearStoredStamp();
       clearStoredPartner();
       return { success: true };
     } catch (error) {
