@@ -56,7 +56,7 @@ export const FEATURES = [
   {
     icon: 'Shield',
     title: 'VLESS Reality',
-    description: 'Самый защищённый протокол. Трафик неотличим от обычного HTTPS.',
+    description: 'Современный протокол. Соединение выглядит как обычный HTTPS к доверенным ресурсам.',
   },
   {
     icon: 'Zap',

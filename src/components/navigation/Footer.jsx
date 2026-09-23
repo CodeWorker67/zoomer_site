@@ -18,7 +18,7 @@ export default function Footer() {
               <span className="text-lg font-bold text-white">Зумерский VPS</span>
             </div>
             <p className="text-gray-400 text-sm">
-              Быстрый и безопасный VPN на базе VLESS Reality. Скорость, стабильность и приватность.
+              VPN на VLESS Reality: защищённая передача данных, стабильное соединение и конфиденциальность.
             </p>
           </div>
 
@@ -40,10 +40,10 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">VPN-гайды</h3>
             <ul className="space-y-2">
-              <li><Link to="/vpn-for-youtube" className="text-gray-400 hover:text-white text-sm transition-colors">VPN для YouTube</Link></li>
-              <li><Link to="/vpn-for-instagram" className="text-gray-400 hover:text-white text-sm transition-colors">VPN для Instagram</Link></li>
-              <li><Link to="/vpn-for-telegram" className="text-gray-400 hover:text-white text-sm transition-colors">VPN для Telegram</Link></li>
-              <li><Link to="/vpn-dlya-rossii" className="text-gray-400 hover:text-white text-sm transition-colors">VPN для России</Link></li>
+              <li><Link to="/vpn-for-youtube" className="text-gray-400 hover:text-white text-sm transition-colors">Стриминг видео</Link></li>
+              <li><Link to="/vpn-for-instagram" className="text-gray-400 hover:text-white text-sm transition-colors">Соцсети и медиа</Link></li>
+              <li><Link to="/vpn-for-telegram" className="text-gray-400 hover:text-white text-sm transition-colors">Мессенджеры</Link></li>
+              <li><Link to="/vpn-dlya-rossii" className="text-gray-400 hover:text-white text-sm transition-colors">VPN в РФ и СНГ</Link></li>
               <li><Link to="/luchshiy-vpn" className="text-gray-400 hover:text-white text-sm transition-colors">Лучший VPN</Link></li>
               <li><Link to={ROUTES.PROTOCOLS} className="text-gray-400 hover:text-white text-sm transition-colors">Протоколы</Link></li>
             </ul>

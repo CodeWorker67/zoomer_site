@@ -31,7 +31,7 @@ export default function AboutPage() {
         <title>О сервисе Зумерский VPN — миссия и инфраструктура</title>
         <meta
           name="description"
-          content="О Зумерском VPN: VLESS Reality, серверы в 4 странах, no-logs, поддержка пользователей из России и СНГ."
+          content="О Зумерском VPN: защита передаваемой информации, VLESS Reality, no-logs, поддержка пользователей в РФ и СНГ."
         />
         <link rel="canonical" href={canonicalFor(ROUTES.ABOUT)} />
       </Helmet>
@@ -43,7 +43,7 @@ export default function AboutPage() {
             <div className="space-y-6 text-gray-300 leading-relaxed">
               <p>
                 <strong className="text-white">Зумерский VPN</strong> — сервис приватного доступа в интернет для
-                пользователей, которым важны скорость, простая настройка и современная защита трафика. Мы используем
+                пользователей, которым важны скорость, простая настройка и конфиденциальность данных. Мы используем
                 протокол VLESS с расширением Reality и размещаем узлы на высокопропускных каналах в Европе и США.
               </p>
               <p>

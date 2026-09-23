@@ -36,7 +36,7 @@ export default function HeroSection() {
           >
             Быстрый VPN
             <br />
-            <span className="text-gradient">без ограничений</span>
+            <span className="text-gradient">для дома и работы</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -46,8 +46,8 @@ export default function HeroSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg sm:text-xl text-gray-400 mb-10 max-w-2xl mx-auto"
           >
-            VLESS Reality протокол. До 10 Гбит/с. Серверы в 4 странах.
-            Стабильный и быстрый доступ к интернету.
+            VLESS Reality. До 10 Гбит/с. Серверы в 4 странах.
+            Защищённая передача данных и стабильное соединение в любых сетях.
           </motion.p>
 
           {/* CTAs */}

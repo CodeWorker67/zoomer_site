@@ -41,6 +41,10 @@ export default function SupportPage() {
     <>
       <Helmet>
         <title>Поддержка — Зумерский VPN</title>
+        <meta
+          name="description"
+          content="Поддержка Зумерский VPN: настройка, оплата, стабильное соединение. Защита передаваемой информации."
+        />
       </Helmet>
 
       <section className="py-20">

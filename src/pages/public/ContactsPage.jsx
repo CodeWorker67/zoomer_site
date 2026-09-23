@@ -13,7 +13,7 @@ export default function ContactsPage() {
     <>
       <Helmet>
         <title>Контакты и поддержка | Зумерский VPN</title>
-        <meta name="description" content="Связаться с поддержкой Зумерский VPN: Telegram-бот, чат поддержки, FAQ." />
+        <meta name="description" content="Поддержка Зумерский VPN: Telegram, FAQ. Помощь с защищённым подключением и доступом к сервисам." />
         <link rel="canonical" href={canonicalFor(ROUTES.CONTACTS)} />
       </Helmet>
 

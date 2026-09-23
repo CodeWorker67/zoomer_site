@@ -31,7 +31,7 @@ const whyZoomer = {
   blocks: [
     {
       type: 'p',
-      text: 'Сервис построен на протоколе VLESS Reality: соединение выглядит как обычный HTTPS, его сложнее распознать и заблокировать. Каналы до 10 Гбит/с, серверы в Германии, Нидерландах, Польше и США, до 5 устройств на одной подписке и политика no-logs.',
+      text: 'Сервис построен на протоколе VLESS Reality: защищённая передача данных с приватной маршрутизацией, соединение выглядит как обычный HTTPS. Каналы до 10 Гбит/с, серверы в Германии, Нидерландах, Польше и США, до 5 устройств на одной подписке и политика no-logs.',
     },
     {
       type: 'ul',
@@ -68,26 +68,26 @@ function page(path, data) {
 /** @type {ReturnType<typeof page>[]} */
 export const SEO_PAGES = [
   page('/vpn-for-youtube', {
-    title: 'VPN для YouTube — быстрый доступ без ограничений | Зумерский ВПН',
-    h1: 'VPN для YouTube',
+    title: 'VPN и стабильный стриминг видео | Зумерский ВПН',
+    h1: 'VPN для просмотра видео',
     description:
-      'Смотрите YouTube без ограничений: стабильный VPN на VLESS Reality, высокая скорость для 4K и Shorts. Подключение за минуты.',
+      'VPN для стриминга: защищённая передача данных, VLESS Reality, советы по серверам для 4K и Shorts.',
     intro:
-      'YouTube требует стабильного канала и обхода региональных ограничений. Зумерский VPN даёт быстрый доступ к роликам, трансляциям и Premium-контенту с телефона и компьютера.',
+      'Видеосервисы требуют стабильного канала и низкой задержки. Зумерский VPN помогает защитить трафик и подобрать EU/US сервер для плавного просмотра с телефона и компьютера.',
     sections: [
       {
-        heading: 'Зачем VPN для YouTube',
+        heading: 'VPN и качество просмотра',
         blocks: [
           {
             type: 'p',
-            text: 'Провайдеры и локальные фильтры могут замедлять или блокировать YouTube. VPN шифрует трафик и направляет его через зарубежный сервер — плеер загружается быстрее, а рекомендации и подписки работают как обычно.',
+            text: 'При нестабильном Wi‑Fi или мобильном интернете буферизация чаще связана с маршрутом и ping, а не только с тарифом. VPN с ближайшим сервером и защищённой передачей данных помогает выровнять соединение для длинных сессий.',
           },
           {
             type: 'ul',
             items: [
-              'Просмотр в 1080p и 4K без постоянной буферизации',
-              'Доступ к каналам и плейлистам из других регионов',
-              'Работа на Android, iPhone, Smart TV через роутер или приложение',
+              'Просмотр в 1080p и 4K при достаточной скорости канала',
+              'Системный VPN на телефоне и ПК — один профиль на все приложения',
+              'Smart TV через роутер или hotspot (см. гайд Smart TV)',
             ],
           },
         ],
@@ -100,26 +100,26 @@ export const SEO_PAGES = [
       trialBlock,
     ],
     related: [
-      { path: '/vpn-dlya-youtube-v-rossii', label: 'YouTube в России' },
+      { path: '/vpn-dlya-youtube', label: 'Гайд по стримингу' },
       { path: '/kak-ustanovit-vpn-na-android', label: 'VPN на Android' },
       { path: '/byistryy-vpn', label: 'Быстрый VPN' },
     ],
   }),
 
   page('/vpn-for-instagram', {
-    title: 'VPN для Instagram — стабильный доступ к Reels и Direct | Зумерский ВПН',
-    h1: 'VPN для Instagram',
+    title: 'VPN и мобильные соцсети — стабильная загрузка медиа | Зумерский ВПН',
+    h1: 'VPN для работы с соцсетями',
     description:
-      'VPN для Instagram: Reels, Stories и сообщения без обрывов. VLESS Reality, серверы в Европе и США.',
+      'VPN для мобильных соцсетей: защищённая передача данных, Reels и Stories, VLESS Reality, EU/US.',
     intro:
-      'Instagram чувствителен к блокировкам и нестабильным маршрутам. Зумерский VPN помогает стабильно заходить в приложение и в веб-версию с любого устройства.',
+      'Соцсети активно используют CDN; при слабом сигнале загрузка медиа может обрываться. VPN добавляет защиту трафика и помогает выбрать стабильный маршрут через EU/US сервер.',
     sections: [
       {
-        heading: 'Что даёт VPN для Instagram',
+        heading: 'Защита и стабильность',
         blocks: [
           {
             type: 'p',
-            text: 'Зашифрованный туннель скрывает характер трафика от провайдера. Загрузка Stories и Reels идёт через быстрый сервер — меньше ошибок «Не удалось загрузить» и вылетов при публикации.',
+            text: 'Приватная передача данных особенно важна в публичном Wi‑Fi. Стабильный маршрут до сервера снижает риск ошибок при публикации Stories и Reels.',
           },
         ],
       },
@@ -138,22 +138,22 @@ export const SEO_PAGES = [
   }),
 
   page('/vpn-for-telegram', {
-    title: 'VPN для Telegram — звонки, каналы и боты без блокировок | Зумерский ВПН',
-    h1: 'VPN для Telegram',
+    title: 'VPN и мессенджеры — звонки и файлы | Зумерский ВПН',
+    h1: 'VPN для мессенджеров',
     description:
-      'Надёжный VPN для Telegram: сообщения, звонки и медиа. Протокол VLESS Reality, низкая задержка.',
+      'VPN для мессенджеров: защищённая передача данных, низкая задержка, VLESS Reality.',
     intro:
-      'Telegram — основной канал связи для многих пользователей. VPN обеспечивает стабильную работу мессенджера, когда доступ ограничен или нестабилен.',
+      'Мессенджеры чувствительны к ping и потере пакетов. VPN помогает защитить трафик и выбрать сервер с минимальной задержкой для звонков и обмена файлами.',
     sections: [
       {
-        heading: 'Когда нужен VPN для Telegram',
+        heading: 'Когда VPN полезен для мессенджеров',
         blocks: [
           {
             type: 'ul',
             items: [
-              'Мессенджер не подключается или долго «крутится»',
-              'Не доходят голосовые и видеозвонки',
-              'Нужен доступ к каналам и ботам без перебоя',
+              'Голосовые и видеозвонки при нестабильном Wi‑Fi',
+              'Работа с каналами и ботами из публичных сетей',
+              'Синхронизация медиа при высокой нагрузке на канал',
             ],
           },
         ],
@@ -166,7 +166,7 @@ export const SEO_PAGES = [
       trialBlock,
     ],
     related: [
-      { path: '/vpn-dlya-rossii', label: 'VPN для России' },
+      { path: '/vpn-dlya-rossii', label: 'VPN в РФ и СНГ' },
       { path: '/luchshiy-vpn', label: 'Лучший VPN' },
     ],
   }),
@@ -175,7 +175,7 @@ export const SEO_PAGES = [
     title: 'Как настроить VPN на iPhone — пошаговая инструкция | Зумерский ВПН',
     h1: 'Как настроить VPN на iPhone',
     description:
-      'Пошагово: как настроить VPN на iPhone через Happ или V2rayTun и ключ VLESS от Зумерского VPN.',
+      'VPN на iPhone: пошаговая настройка Happ/V2rayTun, защищённая передача данных, VLESS Reality.',
     intro:
       'На iPhone VPN настраивается через App Store-приложение и ссылку или ключ из личного кабинета. Весь процесс занимает несколько минут.',
     sections: [
@@ -218,7 +218,7 @@ export const SEO_PAGES = [
               'В Happ: нажмите «Из буфера» — серверы появятся в списке.',
               'В V2rayTun: «+» → «Импорт из буфера обмена».',
               'Разрешите VPN-профиль в iOS (системный запрос).',
-              'Выберите сервер (Германия, NL, PL или US) и включите туннель.',
+              'Выберите сервер (Германия, NL, PL или US) и включите защищённое подключение.',
             ],
           },
         ],
@@ -242,7 +242,7 @@ export const SEO_PAGES = [
     ],
     related: [
       { path: '/vpn-dlya-iphone', label: 'VPN для iPhone' },
-      { path: '/vpn-dlya-iphone-v-rossii', label: 'VPN для iPhone в России' },
+      { path: '/vpn-dlya-iphone-v-rossii', label: 'iPhone: советы по сети' },
       { path: '/setup', label: 'Все устройства' },
     ],
   }),
@@ -251,7 +251,7 @@ export const SEO_PAGES = [
     title: 'Как установить VPN на Android — инструкция 2026 | Зумерский ВПН',
     h1: 'Как установить VPN на Android',
     description:
-      'Установка VPN на Android: Happ, VLESS и ключ из личного кабинета Зумерского VPN.',
+      'VPN на Android: установка Happ, приватная передача данных, ключ из личного кабинета Зумерского VPN.',
     intro:
       'На Android VPN ставится из Google Play и активируется импортом ключа из личного кабинета Зумерского VPN.',
     sections: [
@@ -300,7 +300,7 @@ export const SEO_PAGES = [
     ],
     related: [
       { path: '/vpn-dlya-android', label: 'VPN для Android' },
-      { path: '/vpn-dlya-android-v-rossii', label: 'Android в России' },
+      { path: '/vpn-dlya-android-v-rossii', label: 'Android: советы по сети' },
     ],
   }),
 
@@ -308,7 +308,7 @@ export const SEO_PAGES = [
     title: 'Как подключить VLESS на Windows — Happ и V2rayTun | Зумерский ВПН',
     h1: 'Как подключить VLESS на Windows',
     description:
-      'Подключение VLESS Reality на Windows 10 и 11: установка клиента, импорт ключа, выбор сервера.',
+      'VLESS на Windows 10/11: защищённая передача данных, Happ/V2rayTun, импорт ключа, выбор сервера.',
     intro:
       'VLESS на Windows работает через десктоп-клиент Happ или V2rayTun. Ключ вы получаете в личном кабинете после регистрации на сайте.',
     sections: [
@@ -344,7 +344,7 @@ export const SEO_PAGES = [
         blocks: [
           {
             type: 'p',
-            text: 'Reality маскирует VPN под обычный TLS-трафик к популярным сайтам. Для пользователя это стабильнее классических OpenVPN-схем при фильтрации трафика.',
+            text: 'Reality оформляет VPN как обычный TLS-трафик к популярным сайтам. Для пользователя это стабильнее классических OpenVPN-схем в нестабильных сетях.',
           },
         ],
       },
@@ -355,7 +355,7 @@ export const SEO_PAGES = [
     ],
     related: [
       { path: '/vpn-dlya-windows', label: 'VPN для Windows' },
-      { path: '/vpn-dlya-windows-11-v-rossii', label: 'Windows 11 в России' },
+      { path: '/vpn-dlya-windows-11-v-rossii', label: 'Windows 11' },
       { path: '/protocols', label: 'Протоколы' },
     ],
   }),
@@ -364,7 +364,7 @@ export const SEO_PAGES = [
     title: 'Лучший VPN в 2026 — скорость, приватность, VLESS | Зумерский ВПН',
     h1: 'Лучший VPN: на что смотреть при выборе',
     description:
-      'Как выбрать лучший VPN: протокол, скорость, no-logs, поддержка устройств. Обзор критериев и Зумерский VPN.',
+      'Как выбрать VPN: протокол, скорость, no-logs. Зумерский VPN — защищённая передача данных, VLESS Reality.',
     intro:
       '«Лучший VPN» — не одно приложение из рейтинга, а сочетание протокола, инфраструктуры и удобства. Ниже — критерии, которые реально влияют на ежедневное использование.',
     sections: [
@@ -391,21 +391,21 @@ export const SEO_PAGES = [
       trialBlock,
     ],
     related: [
-      { path: '/vpn-dlya-rossii', label: 'VPN для России' },
-      { path: '/kakoy-vpn-rabotaet-v-rossii-2026', label: 'VPN в России 2026' },
+      { path: '/vpn-dlya-rossii', label: 'VPN в РФ и СНГ' },
+      { path: '/kakoy-vpn-rabotaet-v-rossii-2026', label: 'Выбор VPN в 2026' },
     ],
   }),
 
   page('/vpn-dlya-rossii', {
-    title: 'VPN для России — стабильный доступ в 2026 | Зумерский ВПН',
-    h1: 'VPN для России',
+    title: 'VPN в РФ и СНГ — подключение и серверы | Зумерский ВПН',
+    h1: 'VPN для пользователей в РФ и СНГ',
     description:
-      'VPN для России: обход блокировок, VLESS Reality, быстрые серверы в Европе. Подключение через Telegram.',
+      'VPN в РФ и СНГ: защищённая передача данных, VLESS Reality, EU-серверы, оплата в рублях.',
     intro:
-      'Из России важны устойчивость протокола и скорость до зарубежных площадок. Зумерский VPN использует VLESS Reality и несколько локаций для резервирования маршрута.',
+      'Для пользователей в России и СНГ важны устойчивость протокола, выбор ближайшего сервера и понятная оплата. Зумерский VPN использует VLESS Reality и несколько локаций для резервирования маршрута.',
     sections: [
       {
-        heading: 'Особенности использования в РФ',
+        heading: 'Особенности подключения',
         blocks: [
           {
             type: 'ul',
@@ -426,17 +426,18 @@ export const SEO_PAGES = [
       trialBlock,
     ],
     related: [
-      { path: '/kakoy-vpn-rabotaet-v-rossii-2026', label: 'Какой VPN работает в 2026' },
+      { path: '/kakoy-vpn-rabotaet-v-rossii-2026', label: 'Выбор VPN в 2026' },
       { path: '/vpn-dlya-moskvy', label: 'VPN для Москвы' },
-      { path: '/vpn-for-youtube', label: 'VPN для YouTube' },
-      { path: '/vpn-for-telegram', label: 'VPN для Telegram' },
+      { path: '/luchshiy-vpn', label: 'Критерии выбора VPN' },
+      { path: '/protocols', label: 'Протоколы' },
     ],
   }),
 
   page('/byistryy-vpn', {
     title: 'Быстрый VPN — до 10 Гбит/с, стримы и игры | Зумерский ВПН',
     h1: 'Быстрый VPN без просадки скорости',
-    description: 'Быстрый VPN для стримов, игр и загрузок. Каналы до 10 Гбит/с, VLESS Reality.',
+    description:
+      'Быстрый VPN: адаптивная передача данных, до 10 Гбит/с, стримы и игры, VLESS Reality.',
     intro:
       'Скорость VPN зависит от протокола и загрузки сервера. Зумерский VPN размещён на высокопропускных каналах с упором на низкие задержки.',
     sections: [
@@ -466,14 +467,15 @@ export const SEO_PAGES = [
       connectSteps,
       trialBlock,
     ],
-    related: [{ path: '/vpn-for-youtube', label: 'VPN для YouTube' }],
+    related: [{ path: '/vpn-for-youtube', label: 'Стриминг видео' }],
   }),
 
   page('/vpn-dlya-telefona', {
     title: 'VPN для телефона — iPhone и Android | Зумерский ВПН',
     h1: 'VPN для телефона',
-    description: 'VPN для телефона: одна подписка на iOS и Android, до 5 устройств, VLESS.',
-    intro: 'Мобильный VPN нужен для соцсетей, мессенджеров и карт за границей. Одна подписка Зумерского VPN покрывает несколько телефонов и планшетов.',
+    description:
+      'VPN для телефона: совместимость с мобильным интернетом, до 5 устройств, VLESS Reality.',
+    intro: 'Мобильный VPN защищает трафик в публичных сетях и при поездках. Одна подписка Зумерского VPN покрывает несколько телефонов и планшетов.',
     sections: [mobileScenarios, whyZoomer, connectSteps, troubleshooting, trialBlock],
     related: [
       { path: '/vpn-dlya-iphone', label: 'iPhone' },
@@ -484,7 +486,7 @@ export const SEO_PAGES = [
   page('/vpn-dlya-windows', {
     title: 'VPN для Windows 10 и 11 | Зумерский ВПН',
     h1: 'VPN для Windows',
-    description: 'VPN для Windows: VLESS, Happ Desktop, настройка за минуты.',
+    description: 'VPN для Windows: защищённая передача данных, Happ Desktop, VLESS, настройка за минуты.',
     intro: 'На Windows удобнее всего работать через Happ Desktop или V2rayTun с ключом из личного кабинета.',
     sections: [
       {
@@ -492,7 +494,7 @@ export const SEO_PAGES = [
         blocks: [
           {
             type: 'p',
-            text: 'Подробная инструкция — в материале «Как подключить VLESS на Windows». Кратко: установите клиент, импортируйте ключ с главной через бота, включите туннель.',
+            text: 'Подробная инструкция — в материале «Как подключить VLESS на Windows». Кратко: установите клиент, импортируйте ключ с главной через бота, включите VPN.',
           },
         ],
       },
@@ -508,7 +510,7 @@ export const SEO_PAGES = [
   page('/vpn-dlya-iphone', {
     title: 'VPN для iPhone — App Store, VLESS | Зумерский ВПН',
     h1: 'VPN для iPhone',
-    description: 'VPN для iPhone: Happ, V2rayTun, VLESS Reality. Пошаговая настройка.',
+    description: 'VPN для iPhone: оптимизация под мобильные сети, Happ, V2rayTun, VLESS Reality.',
     intro: 'Для iPhone подходят Happ и V2rayTun из App Store. Ключ выдаётся после регистрации на главной странице сервиса.',
     sections: [iphoneNotes, mobileScenarios, whyZoomer, connectSteps, trialBlock],
     related: [{ path: '/kak-nastroit-vpn-na-iphone', label: 'Настройка на iPhone' }],
@@ -517,24 +519,24 @@ export const SEO_PAGES = [
   page('/vpn-dlya-android', {
     title: 'VPN для Android — Google Play, VLESS | Зумерский ВПН',
     h1: 'VPN для Android',
-    description: 'VPN для Android: установка из Play Market, импорт ключа, стабильное соединение.',
+    description: 'VPN для Android: совместимость с мобильным интернетом, Play Market, защищённое подключение.',
     intro: 'Android-клиенты Happ и V2rayTun поддерживают подписку Зумерского VPN в один тап из буфера обмена.',
     sections: [androidNotes, mobileScenarios, whyZoomer, connectSteps, trialBlock],
     related: [{ path: '/kak-ustanovit-vpn-na-android', label: 'Установка на Android' }],
   }),
 
   page('/vpn-dlya-youtube', {
-    title: 'VPN для YouTube на телефоне и ПК | Зумерский ВПН',
-    h1: 'VPN для YouTube: гайд',
-    description: 'Полный гайд по VPN для YouTube — скорость, устройства, настройка.',
-    intro: 'Тематически эта страница дополняет посадочную /vpn-for-youtube/ — здесь акцент на сценариях просмотра и выборе сервера.',
+    title: 'Стриминг видео через VPN — гайд | Зумерский ВПН',
+    h1: 'Стриминг видео и VPN',
+    description: 'Гайд: VPN для стриминга, защищённая передача данных, выбор сервера, устройства.',
+    intro: 'Страница дополняет материал о просмотре видео — акцент на выборе сервера, скорости и настройке клиента.',
     sections: [
       {
         heading: 'Выбор сервера для стриминга',
         blocks: [
           {
             type: 'p',
-            text: 'Для 4K выбирайте NL или DE при хорошем домашнем канале; для мобильного LTE часто оптимальны PL или DE.',
+            text: 'Для 4K выбирайте NL или DE при хорошем домашнем канале; для мобильного интернета часто оптимальны PL или DE.',
           },
         ],
       },
@@ -547,30 +549,30 @@ export const SEO_PAGES = [
   }),
 
   page('/vpn-dlya-instagram', {
-    title: 'VPN для Instagram — Reels и Direct | Зумерский ВПН',
-    h1: 'VPN для Instagram',
-    description: 'VPN для Instagram на iOS и Android. Стабильная загрузка медиа.',
-    intro: 'Используйте мобильный клиент и ближайший EU-сервер для стабильной работы Instagram.',
+    title: 'VPN и загрузка медиа в соцсетях | Зумерский ВПН',
+    h1: 'VPN для соцсетей: гайд',
+    description: 'VPN для соцсетей: защита в публичном Wi‑Fi, стабильная загрузка Reels, VLESS.',
+    intro: 'Используйте мобильный клиент и ближайший EU-сервер для стабильной загрузки медиа.',
     sections: [instagramUsage, mobileScenarios, whyZoomer, connectSteps, trialBlock],
     related: [{ path: '/vpn-for-instagram', label: 'Посадочная Instagram' }],
   }),
 
   page('/vpn-dlya-telegram', {
-    title: 'VPN для Telegram — сообщения и звонки | Зумерский ВПН',
-    h1: 'VPN для Telegram',
-    description: 'VPN для Telegram с низкой задержкой. VLESS Reality.',
-    intro: 'Для звонков в Telegram важен низкий ping — выбирайте PL или DE.',
+    title: 'VPN и мессенджеры — звонки | Зумерский ВПН',
+    h1: 'VPN для мессенджеров: гайд',
+    description: 'VPN для звонков и чатов: низкая задержка, защищённая передача данных, VLESS Reality.',
+    intro: 'Для голосовых и видеозвонков важен низкий ping — выбирайте PL или DE.',
     sections: [telegramUsage, whyZoomer, connectSteps, troubleshooting, trialBlock],
     related: [{ path: '/vpn-for-telegram', label: 'Посадочная Telegram' }],
   }),
 
   page('/kakoy-vpn-rabotaet-v-rossii-2026', {
-    title: 'Какой VPN работает в России в 2026 году | Зумерский ВПН',
-    h1: 'Какой VPN работает в России в 2026',
+    title: 'Как выбрать VPN-сервис в 2026 | Зумерский ВПН',
+    h1: 'Выбор VPN-сервиса в 2026',
     description:
-      'Обзор: какой VPN работает в России в 2026 — протоколы, Reality, практические советы.',
+      'Критерии выбора VPN в 2026: защищённая передача данных, VLESS Reality, серверы, поддержка.',
     intro:
-      'В 2026 году решает не бренд из рекламы, а протокол и качество маршрутов. VLESS Reality показывает устойчивость там, где классический VPN даёт сбои.',
+      'При выборе сервиса важны протокол, качество маршрутов и прозрачная политика данных — а не только бренд из рекламы.',
     sections: [
       {
         heading: 'На что обратить внимание',
@@ -590,40 +592,40 @@ export const SEO_PAGES = [
       connectSteps,
       trialBlock,
     ],
-    related: [{ path: '/vpn-dlya-rossii', label: 'VPN для России' }],
+    related: [{ path: '/vpn-dlya-rossii', label: 'VPN в РФ и СНГ' }],
   }),
 
   page('/vpn-dlya-youtube-v-rossii', {
-    title: 'VPN для YouTube в России — смотреть без ограничений | Зумерский ВПН',
-    h1: 'VPN для YouTube в России',
-    description: 'YouTube в России через VPN: скорость, серверы, настройка Зумерского VPN.',
-    intro: 'Для YouTube из РФ критичны скорость uplink у провайдера и устойчивый протокол на стороне VPN.',
+    title: 'Стриминг видео: серверы и скорость | Зумерский ВПН',
+    h1: 'Стриминг видео: настройка VPN',
+    description: 'Стриминг через VPN: защищённая передача данных, выбор сервера, скорость, настройка.',
+    intro: 'Для плавного просмотра важны скорость uplink у провайдера и устойчивый протокол на стороне VPN.',
     sections: [youtubeRussiaDetail, youtubeStreaming, whyZoomer, connectSteps, trialBlock],
-    related: [{ path: '/vpn-for-youtube', label: 'VPN для YouTube' }],
+    related: [{ path: '/vpn-for-youtube', label: 'Стриминг видео' }],
   }),
 
   page('/vpn-dlya-iphone-v-rossii', {
-    title: 'VPN для iPhone в России — настройка 2026 | Зумерский ВПН',
-    h1: 'VPN для iPhone в России',
-    description: 'VPN для iPhone в России: App Store, VLESS, инструкция.',
-    intro: 'На iPhone в РФ используйте Happ или V2rayTun и ключ из личного кабинета после регистрации на главной.',
+    title: 'VPN на iPhone — настройка 2026 | Зумерский ВПН',
+    h1: 'VPN на iPhone: советы по сети',
+    description: 'VPN на iPhone: совместимость с мобильным интернетом, App Store, VLESS Reality.',
+    intro: 'На iPhone используйте Happ или V2rayTun и ключ из личного кабинета после регистрации на главной.',
     sections: [iphoneNotes, russiaNetworkContext, whyZoomer, connectSteps, trialBlock],
     related: [{ path: '/kak-nastroit-vpn-na-iphone', label: 'Настройка iPhone' }],
   }),
 
   page('/vpn-dlya-android-v-rossii', {
-    title: 'VPN для Android в России | Зумерский ВПН',
-    h1: 'VPN для Android в России',
-    description: 'VPN для Android в РФ: Play Market, VLESS Reality, Зумерский VPN.',
-    intro: 'Установите клиент из Google Play, импортируйте подписку с сайта — доступ к сервисам восстановится за минуты.',
+    title: 'VPN на Android — настройка | Зумерский ВПН',
+    h1: 'VPN на Android: советы по сети',
+    description: 'VPN на Android: оптимизация под мобильные сети, Play Market, VLESS Reality.',
+    intro: 'Установите клиент из Google Play и импортируйте подписку с сайта — подключение займёт несколько минут.',
     sections: [androidNotes, russiaNetworkContext, whyZoomer, connectSteps, trialBlock],
     related: [{ path: '/kak-ustanovit-vpn-na-android', label: 'Установка Android' }],
   }),
 
   page('/vpn-dlya-windows-11-v-rossii', {
-    title: 'VPN для Windows 11 в России — VLESS | Зумерский ВПН',
-    h1: 'VPN для Windows 11 в России',
-    description: 'VPN Windows 11 в России: Happ Desktop, VLESS, пошаговое подключение.',
+    title: 'VPN на Windows 11 — VLESS | Зумерский ВПН',
+    h1: 'VPN на Windows 11',
+    description: 'VPN Windows 11 в РФ: защита передаваемой информации, Happ Desktop, VLESS Reality.',
     intro: 'Windows 11 полностью поддерживается клиентами Happ и V2rayTun; ключ выдаётся через Telegram-бота после старта с главной страницы.',
     sections: [windowsScenarios, russiaNetworkContext, whyZoomer, connectSteps, trialBlock],
     related: [{ path: '/kak-podklyuchit-vless-na-windows', label: 'VLESS Windows' }],
@@ -633,9 +635,9 @@ export const SEO_PAGES = [
     title: 'VPN для Smart TV — через роутер и телефон | Зумерский ВПН',
     h1: 'VPN для Smart TV',
     description:
-      'Как смотреть контент на Smart TV через VPN: роутер, общий hotspot с телефона, ПК.',
+      'VPN для Smart TV: защищённое подключение через роутер, hotspot с телефона или ПК.',
     intro:
-      'Большинство Smart TV не поддерживают VLESS напрямую. Рабочие схемы — VPN на роутере, раздача с телефона или ПК с включённым туннелем.',
+      'Большинство Smart TV не поддерживают VLESS напрямую. Рабочие схемы — VPN на роутере, раздача с телефона или ПК с включённым VPN.',
     sections: [
       {
         heading: 'Рекомендуемые схемы',
@@ -655,15 +657,15 @@ export const SEO_PAGES = [
       connectSteps,
       trialBlock,
     ],
-    related: [{ path: '/vpn-for-youtube', label: 'YouTube' }],
+    related: [{ path: '/vpn-for-youtube', label: 'Стриминг видео' }],
   }),
 
   ...['rostelekom', 'mts', 'beeline', 'megafon'].map((isp) =>
     page(`/vpn-dlya-${isp}`, {
-      title: `VPN для ${ispLabel(isp)} — стабильный обход | Зумерский ВПН`,
+      title: `VPN для ${ispLabel(isp)} — стабильное соединение | Зумерский ВПН`,
       h1: `VPN для ${ispLabel(isp)}`,
-      description: `VPN при интернете ${ispLabel(isp)}: VLESS Reality, EU/US серверы, быстрая настройка.`,
-      intro: `Абоненты ${ispLabel(isp)} часто сталкиваются с фильтрацией и нестабильными маршрутами. VPN с протоколом Reality помогает выйти на зарубежные площадки с предсказуемой скоростью.`,
+      description: `VPN для ${ispLabel(isp)}: совместимость с мобильным интернетом, защищённая передача данных, VLESS Reality.`,
+      intro: `Абоненты ${ispLabel(isp)} могут видеть разный ping до EU-серверов. VPN с протоколом Reality и выбором ближайшей локации помогает стабилизировать соединение для работы и домашнего использования.`,
       sections: [
         ispExtraBlocks(ispLabel(isp), isp !== 'rostelekom'),
         russiaNetworkContext,
@@ -672,14 +674,14 @@ export const SEO_PAGES = [
         troubleshooting,
         trialBlock,
       ],
-      related: [{ path: '/vpn-dlya-rossii', label: 'VPN для России' }],
+      related: [{ path: '/vpn-dlya-rossii', label: 'VPN в РФ и СНГ' }],
     })
   ),
 
   page('/vpn-dlya-moskvy', {
     title: 'VPN для Москвы — низкий ping, EU серверы | Зумерский ВПН',
     h1: 'VPN для Москвы',
-    description: 'VPN для пользователей в Москве: ближайшие серверы, VLESS, быстрое подключение.',
+    description: 'VPN для Москвы: стабильное соединение, EU-серверы, защищённая передача данных, VLESS.',
     intro: 'Из Москвы оптимальны серверы в Польше и Германии — короткий маршрут и стабильный канал.',
     sections: [cityBlocks('Москвы', 'PL и DE'), russiaNetworkContext, whyZoomer, connectSteps, trialBlock],
     related: [{ path: '/vpn-dlya-sankt-peterburga', label: 'Санкт-Петербург' }],
@@ -688,16 +690,16 @@ export const SEO_PAGES = [
   page('/vpn-dlya-sankt-peterburga', {
     title: 'VPN для Санкт-Петербурга | Зумерский ВПН',
     h1: 'VPN для Санкт-Петербурга',
-    description: 'VPN в СПб: доступ к сервисам, VLESS Reality, поддержка 24/7.',
+    description: 'VPN в СПб: стабильное соединение, VLESS Reality, EU-серверы, поддержка 24/7.',
     intro: 'Для СПб рекомендуем те же EU-локации; при необходимости тестируйте NL для стриминга.',
     sections: [cityBlocks('Санкт-Петербурга', 'PL, DE и NL'), whyZoomer, connectSteps, trialBlock],
     related: [{ path: '/vpn-dlya-moskvy', label: 'Москва' }],
   }),
 
   page('/vpn-dlya-kazahstana', {
-    title: 'VPN для Казахстана — доступ к сервисам | Зумерский ВПН',
+    title: 'VPN для Казахстана — подключение | Зумерский ВПН',
     h1: 'VPN для Казахстана',
-    description: 'VPN для Казахстана: серверы EU/US, VLESS, подключение через Telegram.',
+    description: 'VPN для Казахстана: защищённая передача данных, EU/US, VLESS, Telegram.',
     intro: 'Пользователям из KZ подходят европейские узлы для баланса скорости и доступности контента.',
     sections: [cisCountryBlocks('Казахстана'), whyZoomer, connectSteps, trialBlock],
     related: [{ path: '/vpn-dlya-belarusi', label: 'Беларусь' }],
@@ -706,7 +708,7 @@ export const SEO_PAGES = [
   page('/vpn-dlya-belarusi', {
     title: 'VPN для Беларуси | Зумерский ВПН',
     h1: 'VPN для Беларуси',
-    description: 'VPN для Беларуси: стабильный VLESS, несколько стран, пробный период.',
+    description: 'VPN для Беларуси: приватная передача данных, VLESS Reality, несколько стран, пробный период.',
     intro: 'Из Беларуси удобно подключаться к PL и DE — короткий путь и стабильный Reality-трафик.',
     sections: [cisCountryBlocks('Беларуси'), whyZoomer, connectSteps, trialBlock],
     related: [{ path: '/vpn-dlya-kazahstana', label: 'Казахстан' }],

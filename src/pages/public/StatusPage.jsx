@@ -13,7 +13,7 @@ const nodes = [
 ];
 
 const services = [
-  { name: 'VPN-туннели (VLESS Reality)', status: 'ok' },
+  { name: 'VPN-подключения (VLESS Reality)', status: 'ok' },
   { name: 'Выдача ключей в боте', status: 'ok' },
   { name: 'Личный кабинет на сайте', status: 'ok' },
   { name: 'Оплата (СБП, карта, крипто)', status: 'ok' },
@@ -26,7 +26,7 @@ export default function StatusPage() {
         <title>Статус серверов Зумерский VPN</title>
         <meta
           name="description"
-          content="Актуальный статус VPN-серверов Зумерский VPN: Германия, Нидерланды, Польша, США."
+          content="Статус серверов Зумерский VPN: DE, NL, PL, US. Мониторинг защищённых подключений VLESS Reality."
         />
         <link rel="canonical" href={canonicalFor(ROUTES.STATUS)} />
       </Helmet>

@@ -28,7 +28,7 @@ export default function GuidesHubPage() {
         <title>Инструкции по VPN на всех устройствах | Зумерский VPN</title>
         <meta
           name="description"
-          content="Гайды: VPN на iPhone, Android, Windows VLESS. Подключение Зумерский VPN."
+          content="Гайды VPN: защищённая передача данных, iPhone, Android, Windows VLESS. Зумерский VPN."
         />
         <link rel="canonical" href={canonicalFor(ROUTES.GUIDES)} />
       </Helmet>

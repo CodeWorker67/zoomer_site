@@ -9,8 +9,8 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Зумерский VPN — Быстрый и безопасный VPN</title>
-        <meta name="description" content="Зумерский ВПН — быстрый и безопасный VPN на базе VLESS Reality. До 10 Гбит/с, серверы в 4 странах. Попробуй 5 дней бесплатно!" />
+        <title>Зумерский VPN — защищённая передача данных | VLESS Reality</title>
+        <meta name="description" content="Зумерский ВПН: защищённая передача данных, VLESS Reality, стабильное соединение. До 10 Гбит/с, 4 страны. 5 дней бесплатно." />
         <link rel="canonical" href={canonicalFor('/')} />
       </Helmet>
       <HeroSection />

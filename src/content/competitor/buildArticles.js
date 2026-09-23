@@ -6,7 +6,7 @@ export function comparisonTableBlock(v) {
     type: 'table',
     headers: ['Параметр', v.name, ZOOMER.shortName],
     rows: [
-      ['Тип сервиса', v.type === 'self-hosted' ? 'Свой VPS' : v.type === 'circumvention' ? 'Обход (не классический VPN)' : 'Коммерческий VPN', 'Готовый VPN-сервис'],
+      ['Тип сервиса', v.type === 'self-hosted' ? 'Свой VPS' : v.type === 'circumvention' ? 'Разовый доступ (не классический VPN)' : 'Коммерческий VPN', 'Готовый VPN-сервис'],
       ['Протокол', v.protocol, ZOOMER.protocol],
       ['Цена', v.price, ZOOMER.price],
       ['Бесплатный тариф', v.freeTier, ZOOMER.freeTier],
@@ -38,7 +38,7 @@ function sectionsObzor2026(v) {
     {
       heading: 'Кратко о сервисе',
       blocks: [
-        { type: 'p', text: `${v.name} — ${v.type === 'self-hosted' ? 'решение для развёртывания VPN на собственном сервере' : v.type === 'circumvention' ? 'инструмент обхода блокировок, а не premium VPN' : 'коммерческий VPN-сервис'}. Протоколы: ${v.protocol}.` },
+        { type: 'p', text: `${v.name} — ${v.type === 'self-hosted' ? 'решение для развёртывания VPN на собственном сервере' : v.type === 'circumvention' ? 'сервис разового доступа к ресурсам, а не premium VPN' : 'коммерческий VPN-сервис'}. Протоколы: ${v.protocol}.` },
         { type: 'p', text: v.speedNote },
       ],
     },
@@ -65,7 +65,7 @@ function sectionsObzor2026(v) {
       blocks: [
         {
           type: 'p',
-          text: `Если вам нужен ${v.bestFor.toLowerCase()}, ${v.name} логичен. Если приоритет — быстрый старт, оплата в рублях и стабильный YouTube/Telegram без администрирования, чаще выигрывает ${ZOOMER.shortName} с VLESS Reality и выдачей ключа через Telegram.`,
+          text: `Если вам нужен ${v.bestFor.toLowerCase()}, ${v.name} логичен. Если приоритет — быстрый старт, оплата в рублях и готовый сервис без администрирования VPS, чаще выигрывает ${ZOOMER.shortName} с VLESS Reality и выдачей ключа через Telegram.`,
         },
       ],
     },
@@ -116,7 +116,7 @@ function sectionsVs(v) {
           text:
             v.type === 'self-hosted'
               ? `${v.name} требует свой VPS и администрирования. ${ZOOMER.shortName} — готовые серверы в DE/NL/PL/US и импорт ключа за минуты.`
-              : `${v.name} продаёт доступ к своей сети на ${v.protocol}. ${ZOOMER.shortName} заточен под VLESS Reality и сценарии из России/СНГ с оплатой в рублях.`,
+              : `${v.name} продаёт доступ к своей сети на ${v.protocol}. ${ZOOMER.shortName} — готовый VLESS Reality с оплатой в рублях и поддержкой на русском.`,
         },
       ],
     },
@@ -149,7 +149,7 @@ function sectionsChtoVibrat(v) {
           type: 'ol',
           items: [
             `Нужен только телефон «на вчера» и не хочется платить — оцените free-уровень ${v.name}, но проверьте лимиты.`,
-            `Нужен стабильный YouTube/Telegram каждый день — сравните скорость ${v.name} (${v.speedNote}) с ${ZOOMER.shortName}.`,
+            `Нужен стабильный канал каждый день — сравните скорость ${v.name} (${v.speedNote}) с ${ZOOMER.shortName}.`,
             `Готовы администрировать VPS — ${v.type === 'self-hosted' ? v.name + ' сильнее' : v.name + ' не заменит self-host, смотрите Amnezia/Outline'}.`,
             `Нужна оплата СБП и поддержка в Telegram — ${ZOOMER.shortName}.`,
           ],
@@ -227,7 +227,7 @@ function sectionsNeRabotaet(v) {
           items:
             v.type === 'self-hosted'
               ? [
-                  'Заблокирован IP VPS или порт Shadowsocks/OpenVPN',
+                  'Недоступен IP VPS или порт Shadowsocks/OpenVPN',
                   'Закончился трафик/деньги на хостинге',
                   'Устарел клиент Amnezia/Outline Manager',
                 ]
@@ -235,11 +235,11 @@ function sectionsNeRabotaet(v) {
                 ? [
                     'Перегрузка бесплатной сети Psiphon',
                     'Режим VPN vs Psiphon mode перепутаны',
-                    'Провайдер режет известные IP Psiphon',
+                    'Провайдер ограничивает известные IP Psiphon',
                   ]
                 : [
                     'Исчерпан лимит free-тарифа',
-                    'Блокировка протокола провайдером',
+                    'Нестабильная работа протокола в вашей сети',
                     'Устаревшее приложение или аккаунт',
                     'Выбран перегруженный сервер',
                   ],
@@ -251,7 +251,7 @@ function sectionsNeRabotaet(v) {
       blocks: [
         {
           type: 'p',
-          text: `${ZOOMER.shortName} — готовая замена с VLESS Reality, серверами ${ZOOMER.servers} и настройкой через Telegram. Подходит, если ${v.name} перестал тянуть YouTube, Telegram или Instagram.`,
+          text: `${ZOOMER.shortName} — готовая замена с VLESS Reality, серверами ${ZOOMER.servers} и настройкой через Telegram. Подходит, если ${v.name} перестал давать стабильное соединение или скорость.`,
         },
       ],
     },
@@ -268,7 +268,7 @@ function sectionsNeRabotaet(v) {
             `Удалите или отключите профиль ${v.name}.`,
             'Активируйте пробный период Зумерского VPN на главной.',
             'Импортируйте subscription в Happ, выберите PL или DE.',
-            'Проверьте проблемный сервис (YouTube, Instagram) до оплаты годового тарифа.',
+            'Проверьте скорость и стабильность на своих задачах до оплаты годового тарифа.',
           ],
         },
       ],
@@ -281,7 +281,8 @@ const BUILDERS = {
     path: (s) => `/${s}-obzor-2026`,
     title: (v) => `${v.name} — обзор 2026 | ${ZOOMER.shortName}`,
     h1: (v) => `${v.name} — обзор 2026`,
-    description: (v) => `Обзор ${v.name} в 2026: протоколы, цена, скорость, плюсы и минусы. Таблица сравнения с ${ZOOMER.shortName}.`,
+    description: (v) =>
+      `Обзор ${v.name} в 2026: протоколы, цена, скорость. ${ZOOMER.shortName} — защищённая передача данных, VLESS Reality.`,
     intro: (v) => `Разбираем ${v.name} без маркетинговых клише: кому подходит, где слабее и как смотрится на фоне ${ZOOMER.shortName}.`,
     sections: sectionsObzor2026,
   },
@@ -289,7 +290,8 @@ const BUILDERS = {
     path: (s) => `/${s}-otzyvy-cena-skorost`,
     title: (v) => `${v.name} — отзывы, цена, скорость | ${ZOOMER.shortName}`,
     h1: (v) => `${v.name}: отзывы, цена и скорость`,
-    description: (v) => `Отзывы о ${v.name}, актуальная цена и реальная скорость. Сравнение с ${ZOOMER.shortName} в таблице.`,
+    description: (v) =>
+      `Отзывы о ${v.name}, цена и скорость. ${ZOOMER.shortName}: приватная передача данных, VLESS Reality.`,
     intro: (v) => `Сводка отзывов и цифр по ${v.name}: ${v.price}. ${v.speedNote}`,
     sections: sectionsOtzyvy,
   },
@@ -297,7 +299,8 @@ const BUILDERS = {
     path: (s) => `/${s}-vs-zoomer-vpn`,
     title: (v) => `${v.name} vs ${ZOOMER.shortName} — сравнение 2026`,
     h1: (v) => `${v.name} vs ${ZOOMER.shortName}`,
-    description: (v) => `${v.name} или ${ZOOMER.shortName}? Протоколы, цена, скорость, таблица сравнения.`,
+    description: (v) =>
+      `${v.name} или ${ZOOMER.shortName}? Сравнение протоколов и цены. ${ZOOMER.shortName} — адаптивная передача данных, VLESS Reality.`,
     intro: (v) => `Честное сравнение двух подходов: ${v.protocol} против ${ZOOMER.protocol}.`,
     sections: sectionsVs,
   },
@@ -305,7 +308,8 @@ const BUILDERS = {
     path: (s) => `/${s}-ili-zoomer-vpn-chto-vybrat`,
     title: (v) => `${v.name} или ${ZOOMER.shortName} — что выбрать`,
     h1: (v) => `${v.name} или ${ZOOMER.shortName}: что выбрать`,
-    description: (v) => `Что выбрать — ${v.name} или ${ZOOMER.shortName}? Сценарии, таблица, рекомендации.`,
+    description: (v) =>
+      `${v.name} или ${ZOOMER.shortName}? Сценарии и рекомендации. ${ZOOMER.shortName} — оптимизация под мобильные сети, защита передаваемой информации.`,
     intro: (v) => `Помогаем выбрать между ${v.name} и ${ZOOMER.shortName} под ваши задачи — не «лучший VPN», а подходящий.`,
     sections: sectionsChtoVibrat,
   },
@@ -313,7 +317,8 @@ const BUILDERS = {
     path: (s) => `/alternativa-${s}`,
     title: (v) => `Альтернатива ${v.name} — ${ZOOMER.shortName}`,
     h1: (v) => `Альтернатива ${v.name}`,
-    description: (v) => `Лучшая альтернатива ${v.name} для пользователей из РФ: ${ZOOMER.shortName}, VLESS, таблица.`,
+    description: (v) =>
+      `Альтернатива ${v.name}: ${ZOOMER.shortName}, защищённая передача данных, оплата в рублях, VLESS Reality.`,
     intro: (v) => `Ищете замену ${v.name}? Рассмотрите ${ZOOMER.shortName} — другой тип сервиса и протокола.`,
     sections: sectionsAlternativa,
   },
@@ -321,8 +326,9 @@ const BUILDERS = {
     path: (s) => `/${s}-ne-rabotaet-chem-zamenit`,
     title: (v) => `${v.name} не работает — чем заменить | ${ZOOMER.shortName}`,
     h1: (v) => `${v.name} не работает — чем заменить`,
-    description: (v) => `${v.name} не подключается или медленный? Причины и замена — ${ZOOMER.shortName}.`,
-    intro: (v) => `Разбираем типичные сбои ${v.name} и как перейти на ${ZOOMER.shortName} без потери доступа к YouTube и мессенджерам.`,
+    description: (v) =>
+      `${v.name} не подключается? ${ZOOMER.shortName}: совместимость с мобильным интернетом, защищённая передача данных.`,
+    intro: (v) => `Разбираем типичные сбои ${v.name} и как перейти на ${ZOOMER.shortName} с сохранением стабильного соединения.`,
     sections: sectionsNeRabotaet,
   },
 };
