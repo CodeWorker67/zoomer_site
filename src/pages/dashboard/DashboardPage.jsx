@@ -230,15 +230,15 @@ function OverviewTab() {
       </div>
 
       {proActive && wlLimitExhausted && (
-        <div className="rounded-2xl border border-red-500/40 bg-red-950/40 p-5 space-y-4">
-          <p className="text-sm text-red-100 leading-relaxed">
-            У вас закончился лимит по серверу Антиглушилка (используется для надёжного доступа к ВПН на
-            мобильном интернете).
-            <br />
-            Для продолжения пользования сервером докупите трафик.
-          </p>
-          <Link to={ROUTES.TRAFFIC_BUY}>
-            <Button className="w-full text-sm bg-red-600 hover:bg-red-500 border-red-500/50">
+        <div className="rounded-2xl border-2 border-red-500 bg-gradient-to-br from-red-600/35 via-red-800/55 to-red-950/80 p-5 shadow-lg shadow-red-600/30 ring-1 ring-red-400/40">
+          <div className="text-sm text-white leading-relaxed space-y-1">
+            <p className="font-medium">Сервер "Антиглушилка": убран из списка серверов</p>
+            <p className="italic text-red-50">
+              Для подключения к серверу необходимо пополнить трафик.
+            </p>
+          </div>
+          <Link to={ROUTES.TRAFFIC_BUY} className="block mt-6">
+            <Button className="w-full text-sm bg-red-500 hover:bg-red-400 border-red-300/60 shadow-md shadow-red-900/40">
               Купить трафик
             </Button>
           </Link>
@@ -246,18 +246,20 @@ function OverviewTab() {
       )}
 
       {wlUnderLimit && (
-        <div className="rounded-2xl border border-zoomer-green/40 bg-emerald-950/35 p-5 space-y-4">
-          <p className="text-sm text-emerald-100 leading-relaxed">
-            На сервере Антиглушилка (используется для надёжного доступа к ВПН на мобильном интернете) у вас
-            ещё есть трафик в лимите
-            {typeof wlTraffic.remaining_gb === 'number' && (
-              <> — осталось {wlTraffic.remaining_gb.toFixed(2)} GB</>
-            )}
-            .
-            <br />
-            При необходимости можете докупить трафик заранее.
-          </p>
-          <Link to={ROUTES.TRAFFIC_BUY}>
+        <div className="rounded-2xl border border-zoomer-green/40 bg-emerald-950/35 p-5">
+          <div className="text-sm text-emerald-100 leading-relaxed space-y-1">
+            <p>Сервер "Антиглушилка": активен</p>
+            <p>
+              Остаток трафика:{' '}
+              {typeof wlTraffic.remaining_gb === 'number'
+                ? wlTraffic.remaining_gb.toFixed(2)
+                : '—'}
+            </p>
+            <p className="italic text-emerald-100/90">
+              Докупите трафик заранее для надёжного доступа к мобильному интернету
+            </p>
+          </div>
+          <Link to={ROUTES.TRAFFIC_BUY} className="block mt-6">
             <Button className="w-full text-sm bg-zoomer-green hover:bg-emerald-500 border-emerald-500/50">
               Купить трафик
             </Button>
