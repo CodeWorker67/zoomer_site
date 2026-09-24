@@ -127,6 +127,7 @@ function OverviewTab() {
   const wlLimitExhausted =
     wlTraffic?.limit_exhausted ||
     (wlTraffic && wlTraffic.limit_gb > 0 && wlTraffic.used_gb >= wlTraffic.limit_gb);
+  const wlUnderLimit = proActive && showWlUsage && !wlLimitExhausted;
 
   if (loading) return <LoadingSkeleton />;
 
@@ -238,6 +239,26 @@ function OverviewTab() {
           </p>
           <Link to={ROUTES.TRAFFIC_BUY}>
             <Button className="w-full text-sm bg-red-600 hover:bg-red-500 border-red-500/50">
+              Купить трафик
+            </Button>
+          </Link>
+        </div>
+      )}
+
+      {wlUnderLimit && (
+        <div className="rounded-2xl border border-zoomer-green/40 bg-emerald-950/35 p-5 space-y-4">
+          <p className="text-sm text-emerald-100 leading-relaxed">
+            На сервере Антиглушилка (используется для надёжного доступа к ВПН на мобильном интернете) у вас
+            ещё есть трафик в лимите
+            {typeof wlTraffic.remaining_gb === 'number' && (
+              <> — осталось {wlTraffic.remaining_gb.toFixed(2)} GB</>
+            )}
+            .
+            <br />
+            При необходимости можете докупить трафик заранее.
+          </p>
+          <Link to={ROUTES.TRAFFIC_BUY}>
+            <Button className="w-full text-sm bg-zoomer-green hover:bg-emerald-500 border-emerald-500/50">
               Купить трафик
             </Button>
           </Link>
