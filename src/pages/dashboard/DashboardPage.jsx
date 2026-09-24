@@ -80,6 +80,7 @@ function OverviewTab() {
   const telegramBotUrl = useTelegramBotUrl();
   const [sub, setSub] = useState(null);
   const [keys, setKeys] = useState(null);
+  const [wlTraffic, setWlTraffic] = useState(null);
   const [loading, setLoading] = useState(true);
   const [trialLoading, setTrialLoading] = useState(false);
   const [copied, setCopied] = useState(null);
@@ -96,6 +97,7 @@ function OverviewTab() {
     Promise.all([
       userApi.subscription().then(({ data }) => setSub(data)).catch(() => null),
       userApi.keys().then(({ data }) => setKeys(data)).catch(() => null),
+      userApi.wlTraffic().then(({ data }) => setWlTraffic(data)).catch(() => null),
     ]).finally(() => setLoading(false));
   }, []);
 
@@ -120,6 +122,11 @@ function OverviewTab() {
 
   const hasAnySub = sub?.pro?.active || sub?.mobile?.active;
   const hasAnyKey = keys?.pro_url || keys?.mobile_url;
+  const proActive = Boolean(sub?.pro?.active);
+  const showWlUsage = proActive && wlTraffic && (wlTraffic.limit_gb > 0 || wlTraffic.used_gb > 0);
+  const wlLimitExhausted =
+    wlTraffic?.limit_exhausted ||
+    (wlTraffic && wlTraffic.limit_gb > 0 && wlTraffic.used_gb >= wlTraffic.limit_gb);
 
   if (loading) return <LoadingSkeleton />;
 
@@ -204,6 +211,14 @@ function OverviewTab() {
             До: {sub.pro.expires}
           </div>
         )}
+        {showWlUsage && (
+          <div className="flex items-center gap-2 text-gray-400 text-sm mt-2">
+            <span className="text-gray-500 shrink-0">Антиглушилка:</span>
+            <span>
+              {wlTraffic.used_gb.toFixed(2)} / {wlTraffic.limit_gb.toFixed(2)} GB
+            </span>
+          </div>
+        )}
         {!sub?.pro?.active && (
           <div className="mt-4">
             <Link to={ROUTES.PRICING}>
@@ -212,6 +227,22 @@ function OverviewTab() {
           </div>
         )}
       </div>
+
+      {proActive && wlLimitExhausted && (
+        <div className="rounded-2xl border border-red-500/40 bg-red-950/40 p-5 space-y-4">
+          <p className="text-sm text-red-100 leading-relaxed">
+            У вас закончился лимит по серверу Антиглушилка (используется для надёжного доступа к ВПН на
+            мобильном интернете).
+            <br />
+            Для продолжения пользования сервером докупите трафик.
+          </p>
+          <Link to={ROUTES.TRAFFIC_BUY}>
+            <Button className="w-full text-sm bg-red-600 hover:bg-red-500 border-red-500/50">
+              Купить трафик
+            </Button>
+          </Link>
+        </div>
+      )}
 
       {/* Quick actions */}
       <div className="card-dark">
