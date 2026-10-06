@@ -8,7 +8,7 @@ import { COMPETITOR_PAGE_PATHS } from '../src/content/competitor/index.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
-const siteUrl = (process.env.VITE_SITE_URL || 'https://zoomerskyvpn.ru').replace(/\/$/, '');
+const siteUrl = (process.env.VITE_SITE_URL || 'https://4zoomer.top').replace(/\/$/, '');
 
 const staticPaths = [
   '/',

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zoomerskyvpn.ru/sitemap.xml
+Sitemap: https://4zoomer.top/sitemap.xml
